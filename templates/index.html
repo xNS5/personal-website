@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+  <img class="profile-picture" src="{{ config.extra.profile_picture }}" alt="me" width="250" height="250">
+  <div>
+    <div>
+      {{ config.extra.author }}
+    </div>
+  </div>
+</div>
+{% endblock content %}

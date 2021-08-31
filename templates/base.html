@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title> {% block title %}{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="{{ config.extra.author }}">
+  <meta name=description content="Personal website of a web developer using zola static generator website.">
+  <noscript>
+    <link rel="stylesheet" href="../static/styling/style.css">
+  </noscript>
+</head>
+
+
+<body>
+{% block content %} {% endblock %}
+</body>
+</html>
