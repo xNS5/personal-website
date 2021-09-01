@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 
+{% block title %}{{ config.extra.author }} - {{ section.title }}{% endblock title %}
+
 {% block content %}
-<div>
-  <img class="profile-picture" src="{{ config.extra.profile_picture }}" alt="me" width="250" height="250">
-  <div>
-    <div>
-      {{ config.extra.author }}
-    </div>
-  </div>
+<div class="hero-image">
+    <nav>
+        {% for link in config.extra.navbar_links %}
+        <a title="{{ link.title }} " href="{{ link.url }}" target="{{ link.target }}" rel="noreferrer"> {{ link.title }}</a>
+        {% endfor %}
+    </nav>
+    <footer>
+        {{ config.extra.copyright }}
+    </footer>
 </div>
 {% endblock content %}

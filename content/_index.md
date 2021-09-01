@@ -1,5 +1,5 @@
 +++
-title = "Michael Kennedy"
+title = "Home"
 template = "index.html"
 +++
 
