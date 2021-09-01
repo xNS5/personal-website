@@ -3,12 +3,22 @@
 {% block title %}{{ config.extra.author }} - {{ section.title }}{% endblock title %}
 
 {% block content %}
+
 <div class="hero-image">
     <nav>
         {% for link in config.extra.navbar_links %}
-        <a title="{{ link.title }} " href="{{ link.url }}" target="{{ link.target }}" rel="noreferrer"> {{ link.title }}</a>
+
+            {% if link.url == "" %}
+                <a class="active" title="{{ link.title }} " href="{{ link.url }}" target="{{ link.target }}" rel="noreferrer"> {{ link.title }}</a>
+            {% else %}
+                <a title="{{ link.title }} " href="{{ link.url }}" target="{{ link.target }}" rel="noreferrer"> {{ link.title }}</a>
+            {% endif %}
+
         {% endfor %}
     </nav>
+    <main>
+
+    </main>
     <footer>
         {{ config.extra.copyright }}
     </footer>
