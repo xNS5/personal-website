@@ -1,4 +1,8 @@
 
+/*
+    TODO: Create responsive CSS for sidebar styling, profile picture size, and copyright
+*/
+
 html, body{
     margin: 0;
 }
@@ -60,4 +64,17 @@ nav a.active:hover{
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("hero_image.jpg") no-repeat center top;
     background-size: cover;
     position: relative;
+}
+
+.profile-picture{
+    height: auto;
+    width: 15%;
+    object-fit: cover;
+    border-radius: 100%;
+    overflow: hidden;
+    border: 2px solid #d8dee9;
+    position: absolute;
+    top: 25%;
+    right: 50%;
+    transform: translate(-50%, -50%);
 }
