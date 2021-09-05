@@ -21,11 +21,11 @@ stylesheet = "site.css"
 copyright = "Michael Kennedy © 2021"
 
 navbar_links = [
-    { url="", title="Home", target=""},
-    { url="", title="Projects", target=""},
-    { url="", title="Photography", target=""},
-    { url="", title="Resume", target=""},
+    { url="/", title="Home", target=""},
+    { url="/projects", title="Projects", target=""},
+    { url="/photography", title="Photography", target=""},
+    { url="/resume", title="Resume", target=""},
     { url="https://github.com/xNS5", title="Github", target="_blank"},
-    { url="https://www.linkedin.com/in/mw-kennedy/", title="Linkedin", target=""},
+    { url="https://www.linkedin.com/in/mw-kennedy/", title="Linkedin", target="_blank"},
 ]
 
