@@ -12,9 +12,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
 </head>
+  <body>
+  {% block content %}{% endblock %}
+    <nav>
+      {% for link in config.extra.navbar_links %}
 
-
-<body>
-    {% block content %}{% endblock %}
-</body>
+        <a title="{{ link.title }} " href="{{ link.url }}" target="{{ link.target }}" rel="noreferrer"> {{ link.title }}</a>
+      {% endfor %}
+    </nav>
+  </body>
 </html>

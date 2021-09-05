@@ -1,23 +1,18 @@
 {% extends "base.html" %}
 
-{% block title %}{{ config.extra.author }} - {{ section.title }}{% endblock title %}
+{% block title %}
+{{ config.extra.author }} - {{ section.title }}
+{% endblock title %}
 
 {% block content %}
-
 <div class="hero-image">
-    <nav>
-        {% for link in config.extra.navbar_links %}
-
-            {% if link.url == "" %}
-                <a class="active" title="{{ link.title }} " href="{{ link.url }}" target="{{ link.target }}" rel="noreferrer"> {{ link.title }}</a>
-            {% else %}
-                <a title="{{ link.title }} " href="{{ link.url }}" target="{{ link.target }}" rel="noreferrer"> {{ link.title }}</a>
-            {% endif %}
-
-        {% endfor %}
-    </nav>
     <main>
-        <img class="profile-picture" src="{{ config.extra.profile_picture}}" />
+<!--        <div class="profile-container">-->
+<!--            <div class="bio">-->
+<!--                {{ section.content | safe }}-->
+<!--            </div>-->
+<!--            <img src="{{ config.extra.profile_picture}}"/>-->
+<!--        </div>-->
     </main>
     <footer>
         {{ config.extra.copyright }}

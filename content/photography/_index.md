@@ -1,6 +1,7 @@
 +++
 title="Photography"
-template= ""
+path="/photography"
+template="photography.html"
 +++
 
 # Photography
