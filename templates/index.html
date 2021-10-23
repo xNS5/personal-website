@@ -6,12 +6,16 @@
 {% block content %}
 <div class="hero-image">
     <main>
-<!--        <div class="profile-container">-->
-<!--            <div class="bio">-->
-<!--                {{ section.content | safe }}-->
-<!--            </div>-->
-<!--            <img src="{{ config.extra.profile_picture}}"/>-->
-<!--        </div>-->
+        <div class="profile-container">
+            <div class="profile-wrap">
+                <img class="profile-image" src="{{ config.extra.profile_picture}}" alt="Profile picture of Michael Kennedy wearing red sunglasses, a brown hat, and wearing a red flannel."/>
+                <div class="bio">
+                    {{ section.content | safe }}
+                </div>
+
+            </div>
+
+        </div>
     </main>
 
 </div>
