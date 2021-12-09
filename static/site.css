@@ -1,10 +1,7 @@
 
-/*
-    TODO: Create responsive CSS for sidebar styling, profile picture size, and copyright
-*/
 
 
- /* Extra small devices (phones, 600px and down) */
+/* Extra small devices (phones, 600px and down) */
 /*@media only screen and (max-width: 600px) {...}*/
 
 /*!* Small devices (portrait tablets and large phones, 600px and up) *!*/
@@ -19,130 +16,199 @@
 /*!* Extra large devices (large laptops and desktops, 1200px and up) *!*/
 /*@media only screen and (min-width: 1200px) {...}*/
 
-
-/* Variables */
-
-
-
-
-
-
-
-
-
 /* CSS Styling */
 
+body, html {width: auto; height: 100%; margin: 0; padding: 0}
 
-html, body{
-    margin: 0;
-}
-
-footer{
-    font-family: 'Sora', sans-serif;
-    background-color: rgba(46, 52, 64, 0.7);
-    border-radius: 12px 12px 0 0;
-    color: white;
-    position: absolute;
-    padding: 5px 10px 0;
-    font-size: 15px;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%);
-}
-
-nav {
-    background-color: rgba(46, 52, 64, 0.8);
-    overflow: hidden;
-    justify-content: flex-end;
-    border-radius: 0 0 12px 12px;
-    position: absolute;
-    top: 0;
-    right: 10px;
-}
-
-nav a {
-    float: left;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 35px;
-    font-family: 'Sora', sans-serif;
-}
-
-nav a:hover {
-    background-color: #d8dee9;
-    color: black;
-}
-
-/*nav a.active {*/
-/*    text-decoration: underline white;*/
-/*    font-weight: bolder;*/
-/*    text-underline-offset: 5px;*/
-/*    color: white;*/
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
 /*}*/
 
-nav a.active:hover{
-    color: black;
-    font-weight: bolder;
-    text-decoration: underline black;
-}
+/*html{*/
+/*    font-size: 75%;*/
+/*    font-family: 'Sora', sans-serif;*/
+/*}*/
 
-.hero-image {
-    height: 100vh;
-    width: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("hero_image.jpg") no-repeat center top;
-    background-size: cover;
-    position: relative;
-}
+/*.nav-menu li {*/
+/*    list-style: none;*/
+/*}*/
 
-.profile-container{
-    display: inline-block;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-    border-radius: 12px;
-    position: absolute;
-    padding: 20px;
-    height: 550px;
-    width: 700px;
-    top: 50%;
-    right: 20%;
-    transform: translate(-50%, -50%);
-}
+/*a.nav-link {*/
+/*    text-decoration: none;*/
+/*    color: #475569;*/
+/*}*/
 
-.profile-container img{
-    height: auto;
-    width: 50%;
-    bottom: 60%;
-    right: 60%;
-    transform: translate(-50%, -50%);
-    border-radius: 100%;
-    object-fit: cover;
-    overflow: hidden;
-    border: 2px solid #d8dee9;
-    position: absolute;
-}
+/*a.nav-link:active{*/
+/*    color: white;*/
+/*    background: rgba(67,76,94, 0.8);*/
+/*}*/
 
-.bio{
-    background: white;
-    border-radius: 12px;
-    font-family: 'Sora', sans-serif;
-    font-size: 30px;
-    margin: 10px;
-    padding: 10px 10px;
-}
+/*.hamburger {*/
+/*    display: none;*/
+/*}*/
 
-.bio h1{
-    text-align: center;
-}
+/*.bar {*/
+/*    display: block;*/
+/*    width: 25px;*/
+/*    height: 3px;*/
+/*    margin: 5px auto;*/
+/*    -webkit-transition: all 0.3s ease-in-out;*/
+/*    transition: all 0.3s ease-in-out;*/
+/*    background-color: black;*/
+/*}*/
 
-/* Dynamic Changes */
+/*nav{*/
+/*    justify-content: flex-start;*/
+/*    background: rgb(216,222,233);*/
+/*    padding: 1.2em;*/
+/*    border-radius: 15px;*/
+/*}*/
 
-@media only screen and (max-width: 600px){
-    footer {
-        font-size: 10px;
-    }
-    nav a{
-        font-size: 20px;
-        padding: 5px;
-    }
-}
+/*.nav-menu {*/
+/*    display: inline-flex;*/
+/*    list-style: none;*/
+/*    text-align: center;*/
+/*    justify-content: space-evenly;*/
+/*    margin-left: 50em;*/
+/*}*/
+
+/*.nav-item {*/
+/*    display: table;*/
+/*    width: 100%;*/
+/*}*/
+
+/*.nav-item:hover{*/
+/*    text-decoration: 0.2rem black underline;*/
+/*    text-underline-offset: 0.6em;*/
+/*}*/
+
+/*.nav-link{*/
+/*    font-size: 2rem;*/
+/*    font-weight: 400;*/
+/*    padding: 1.5em;*/
+/*}*/
+
+/*.hero-image {*/
+/*    height: 100vh;*/
+/*    width: 100%;*/
+/*    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)), url("hero_image.jpg") no-repeat center top;*/
+/*    background-size: cover;*/
+/*    position: absolute;*/
+/*    z-index: -1;*/
+/*}*/
+
+/*.footerWrap {*/
+/*    width:100%;*/
+/*    position:fixed;*/
+/*    bottom: 0;*/
+/*}*/
+/*.footer {*/
+/*    width: 20em;*/
+/*    margin:auto;*/
+/*}*/
+
+/*.footerContent {*/
+/*    float: left;*/
+/*    width: 100%;*/
+/*    background-color: rgba(46, 52, 64, 0.7);*/
+/*    color: white;*/
+/*    padding: 10px 0;*/
+/*    border-radius: 1.2em 1.2em 0 0;*/
+/*}*/
+/*.footer span {float:left; width:100%; text-align:center; font-size: 1.5em}*/
+
+/*.profile-container{*/
+/*    display: block;*/
+/*    border-radius: 12px;*/
+/*    padding: 20px;*/
+/*    height: auto;*/
+/*    width: 50%;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*}*/
+
+/*.profile-wrap{*/
+/*    position: relative;*/
+/*    width:100%;*/
+/*    min-height: 10em;*/
+/*    margin-top: 10em;*/
+/*    justify-content: center;*/
+/*}*/
+
+/*.profile-image{*/
+/*    height: auto;*/
+/*    width: 30%;*/
+/*    border-radius: 100%;*/
+/*    object-fit: cover;*/
+/*    overflow: hidden;*/
+/*    border: 2px solid #d8dee9;*/
+/*    transform: translate(100%);*/
+/*}*/
+
+/*.bio{*/
+/*    background: white;*/
+/*    border-radius: 12px;*/
+/*    font-family: 'Sora', sans-serif;*/
+/*    font-size: 30px;*/
+/*    margin: 10px;*/
+/*    padding: 1em 1em;*/
+/*}*/
+
+/*@media only screen and (max-width: 700px) {*/
+/*    .nav{*/
+/*        margin-right: 10rem;*/
+/*    }*/
+/*    .nav-menu {*/
+/*        position: fixed;*/
+/*        left: -100%;*/
+/*        top: 5rem;*/
+/*        flex-direction: column;*/
+/*        background-color: #fff;*/
+/*        width: 100%;*/
+/*        text-align: center;*/
+/*        transition: 0.3s;*/
+/*        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);*/
+/*    }*/
+
+/*    .nav-menu.active {*/
+/*        left: 0;*/
+/*        background: rgba(216, 222, 233, 0.98);*/
+/*    }*/
+
+/*    .nav-item {*/
+/*        float: none;*/
+/*        margin: 2em;*/
+/*    }*/
+
+/*    .hamburger {*/
+
+/*        justify-content: left;*/
+/*        display: block;*/
+/*        cursor: pointer;*/
+/*    }*/
+
+/*    .hamburger.active .bar:nth-child(1) {*/
+/*        transform: translateY(8px) rotate(45deg);*/
+/*    }*/
+
+/*    .hamburger.active .bar:nth-child(2) {*/
+/*        opacity: 0;*/
+/*    }*/
+
+/*    .hamburger.active .bar:nth-child(3) {*/
+/*        transform: translateY(-8px) rotate(-45deg);*/
+/*    }*/
+
+/*    .profile-image{*/
+/*        height: auto;*/
+/*        width: 25%;*/
+/*        border-radius: 100%;*/
+/*        object-fit: cover;*/
+/*        overflow: hidden;*/
+/*        border: 2px solid #d8dee9;*/
+/*    }*/
+/*}*/
+
+

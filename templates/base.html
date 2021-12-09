@@ -4,21 +4,57 @@
 <head>
   <meta charset="utf-8">
   <title> {% block title %}{% endblock %}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="{{ config.extra.author }}">
   <meta name=description content="Personal website of a web developer using zola static generator website.">
-  <link rel="stylesheet" href="{{ get_url(path="site.css") }}">
+  <link rel="stylesheet" href='{{ get_url(path="site.css")}}'>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
 </head>
   <body>
-  {% block content %}{% endblock %}
-    <nav>
-      {% for link in config.extra.navbar_links %}
+  {% block content %}
+  {% endblock %}
+<!--  <nav>-->
+<!--    <ul class="nav-menu">-->
+<!--      {% for link in config.extra.navbar_links %}-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" title="{{ link.title }} " href="{{ link.url }}" target="{{ link.target }}" rel="noreferrer"> {{ link.title }}</a>-->
+<!--      </li>-->
+<!--      {% endfor %}-->
+<!--    </ul>-->
+<!--    <div class="hamburger">-->
+<!--      <span class="bar"></span>-->
+<!--      <span class="bar"></span>-->
+<!--      <span class="bar"></span>-->
+<!--    </div>-->
+<!--      <script>-->
+<!--        const hamburger = document.querySelector(".hamburger");-->
+<!--        const navMenu = document.querySelector(".nav-menu");-->
+<!--        const navLink = document.querySelectorAll(".nav-link");-->
 
-        <a title="{{ link.title }} " href="{{ link.url }}" target="{{ link.target }}" rel="noreferrer"> {{ link.title }}</a>
-      {% endfor %}
-    </nav>
+<!--        hamburger.addEventListener("click", mobileMenu);-->
+<!--        function mobileMenu() {-->
+<!--          hamburger.classList.toggle("active");-->
+<!--          navMenu.classList.toggle("active");-->
+<!--        }-->
+<!--        navLink.forEach(n => n.addEventListener("click", closeMenu));-->
+<!--        function closeMenu() {-->
+<!--          hamburger.classList.remove("active");-->
+<!--          navMenu.classList.remove("active");-->
+<!--        }-->
+
+<!--      </script>-->
+<!--  </nav>-->
+
+  <footer>
+    <div class="footerWrap">
+      <div class="footer">
+        <div class="footerContent">
+          <span>{{ config.extra.copyright }}</span>
+        </div>
+      </div>
+    </div>
+  </footer>
   </body>
 </html>

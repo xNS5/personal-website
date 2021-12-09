@@ -15,10 +15,11 @@ highlight_code = true
 [extra]
 # Put all your custom variables here
 author = "Michael Kennedy"
-description = "A personal webiste for a soon-to-graduate software developer"
+description = "A personal website for a soon-to-graduate software developer"
 profile_picture = "profile_picture.png"
 stylesheet = "site.css"
 copyright = "Michael Kennedy © 2021"
+resume="MichaelKennedy_Resume.pdf"
 
 navbar_links = [
     { url="/", title="Home", target=""},
@@ -27,5 +28,6 @@ navbar_links = [
     { url="/resume", title="Resume", target=""},
     { url="https://github.com/xNS5", title="Github", target="_blank"},
     { url="https://www.linkedin.com/in/mw-kennedy/", title="Linkedin", target="_blank"},
+    { url="/contact", title="Contact", target=""},
 ]
 
