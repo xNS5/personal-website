@@ -15,37 +15,38 @@
   <body>
   {% block content %}
   {% endblock %}
-  <nav>
-    <ul class="nav-menu">
-      {% for link in config.extra.navbar_links %}
-      <li class="nav-item">
-        <a class="nav-link" title="{{ link.title }} " href="{{ link.url }}" target="{{ link.target }}" rel="noreferrer"> {{ link.title }}</a>
-      </li>
-      {% endfor %}
-    </ul>
-    <div class="hamburger">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-      <script>
-        const hamburger = document.querySelector(".hamburger");
-        const navMenu = document.querySelector(".nav-menu");
-        const navLink = document.querySelectorAll(".nav-link");
+<!--  <nav>-->
+<!--    <ul class="nav-menu">-->
+<!--      {% for link in config.extra.navbar_links %}-->
+<!--      <li class="nav-item">-->
+<!--        <a class="nav-link" title="{{ link.title }} " href="{{ link.url }}" target="{{ link.target }}" rel="noreferrer"> {{ link.title }}</a>-->
+<!--      </li>-->
+<!--      {% endfor %}-->
+<!--    </ul>-->
+<!--    <div class="hamburger">-->
+<!--      <span class="bar"></span>-->
+<!--      <span class="bar"></span>-->
+<!--      <span class="bar"></span>-->
+<!--    </div>-->
+<!--      <script>-->
+<!--        const hamburger = document.querySelector(".hamburger");-->
+<!--        const navMenu = document.querySelector(".nav-menu");-->
+<!--        const navLink = document.querySelectorAll(".nav-link");-->
 
-        hamburger.addEventListener("click", mobileMenu);
-        function mobileMenu() {
-          hamburger.classList.toggle("active");
-          navMenu.classList.toggle("active");
-        }
-        navLink.forEach(n => n.addEventListener("click", closeMenu));
-        function closeMenu() {
-          hamburger.classList.remove("active");
-          navMenu.classList.remove("active");
-        }
+<!--        hamburger.addEventListener("click", mobileMenu);-->
+<!--        function mobileMenu() {-->
+<!--          hamburger.classList.toggle("active");-->
+<!--          navMenu.classList.toggle("active");-->
+<!--        }-->
+<!--        navLink.forEach(n => n.addEventListener("click", closeMenu));-->
+<!--        function closeMenu() {-->
+<!--          hamburger.classList.remove("active");-->
+<!--          navMenu.classList.remove("active");-->
+<!--        }-->
 
-      </script>
-  </nav>
+<!--      </script>-->
+<!--  </nav>-->
+
   <footer>
     <div class="footerWrap">
       <div class="footer">

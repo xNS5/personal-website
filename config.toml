@@ -19,6 +19,7 @@ description = "A personal website for a soon-to-graduate software developer"
 profile_picture = "profile_picture.png"
 stylesheet = "site.css"
 copyright = "Michael Kennedy © 2021"
+resume="MichaelKennedy_Resume.pdf"
 
 navbar_links = [
     { url="/", title="Home", target=""},
