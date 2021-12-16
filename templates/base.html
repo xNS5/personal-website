@@ -1,60 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <title> {% block title %}{% endblock %}</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="{{ config.extra.author }}">
-  <meta name=description content="Personal website of a web developer using zola static generator website.">
-  <link rel="stylesheet" href='{{ get_url(path="site.css")}}'>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
-</head>
+    <head>
+      <meta charset="utf-8">
+      <title> {% block title %}{% endblock %}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="author" content="{{ config.extra.author }}">
+      <meta name=description content="{{config.extra.description}}">
+      <link rel="stylesheet" href='{{ get_url(path="main.css")}}'>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
+    </head>
   <body>
   {% block content %}
   {% endblock %}
-<!--  <nav>-->
-<!--    <ul class="nav-menu">-->
-<!--      {% for link in config.extra.navbar_links %}-->
-<!--      <li class="nav-item">-->
-<!--        <a class="nav-link" title="{{ link.title }} " href="{{ link.url }}" target="{{ link.target }}" rel="noreferrer"> {{ link.title }}</a>-->
-<!--      </li>-->
-<!--      {% endfor %}-->
-<!--    </ul>-->
-<!--    <div class="hamburger">-->
-<!--      <span class="bar"></span>-->
-<!--      <span class="bar"></span>-->
-<!--      <span class="bar"></span>-->
-<!--    </div>-->
-<!--      <script>-->
-<!--        const hamburger = document.querySelector(".hamburger");-->
-<!--        const navMenu = document.querySelector(".nav-menu");-->
-<!--        const navLink = document.querySelectorAll(".nav-link");-->
-
-<!--        hamburger.addEventListener("click", mobileMenu);-->
-<!--        function mobileMenu() {-->
-<!--          hamburger.classList.toggle("active");-->
-<!--          navMenu.classList.toggle("active");-->
-<!--        }-->
-<!--        navLink.forEach(n => n.addEventListener("click", closeMenu));-->
-<!--        function closeMenu() {-->
-<!--          hamburger.classList.remove("active");-->
-<!--          navMenu.classList.remove("active");-->
-<!--        }-->
-
-<!--      </script>-->
-<!--  </nav>-->
-
-  <footer>
-    <div class="footerWrap">
-      <div class="footer">
-        <div class="footerContent">
-          <span>{{ config.extra.copyright }}</span>
-        </div>
-      </div>
-    </div>
+  <footer id="footer">
+    <ul class="icons">
+      {% for url in config.extra.footer_links%}
+        <li><a href='{{url.url}}' target="_blank" aria-label='{{url.title}}' class='{{url.css_class}}'><span class="label">{{url.title}}</span></a></li>
+      {% endfor %}
+    </ul>
+    <ul class="copyright">
+      <li>{{ config.extra.copyright }}</li>
+    </ul>
   </footer>
+
+  <script type="text/javascript" src='{{ get_url(path="js/jquery.min.js") }}'></script>
+  <script type="text/javascript" src='{{ get_url(path="js/jquery.scrolly.min.js") }}'></script>
+  <script type="text/javascript" src='{{ get_url(path="js/browser.min.js") }}'></script>
+  <script type="text/javascript" src='{{ get_url(path="js/breakpoints.min.js") }}'></script>
+  <script type="text/javascript" src='{{ get_url(path="js/main.js")}}'></script>
+  <script type="text/javascript" src='{{ get_url(path="js/util.js") }}'></script>
   </body>
 </html>
