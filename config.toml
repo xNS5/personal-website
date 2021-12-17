@@ -15,11 +15,16 @@ highlight_code = true
 [extra]
 # Put all your custom variables here
 author = "Michael Kennedy"
-description = "A personal website for a soon-to-graduate software developer"
-profile_picture = "profile_picture.png"
-stylesheet = "site.css"
+description = "A personal website for a new graduate software developer"
+profile_picture = "images/profile_picture.png"
+header_image = "images/hero_image.jpg"
+stylesheet = "main.css"
 copyright = "Michael Kennedy © 2021"
 resume="MichaelKennedy_Resume.pdf"
+
+
+biography_title="Hi, I'm Michael"
+biography="I am a recent graduate of Western Washington University's Computer Science program with a Communication Studies minor. I am an inquisitive and hard working individual who enjoys any opportunity to further his knowledge and abilities. I am currently based in the beautiful Bellingham, WA, seeking either hybrid or remote employment as a Software Engineer. Through my education, I've been fortunate to have worked on all types of projects — mobile, video games, web development, systems development, etc. I've found that I enjoy creating mobile applications, and working with stakeholders to create software for their needs. There is something about the tactile experience of interacting with a piece of software I wrote that I find incredibly satisfying. With that said, I'm open to any opportunities that will help me further my professional career. In my free time, I enjoy exploring Washington, playing classical guitar, photography, and making things with my hands. Photography allows me to shut off that part of my brain that wants to be analytical and allows me to enjoy the natural beauty of my surroundings. I've been playing guitar for most of my life, and I enjoy the elegance of classical music."
 
 navbar_links = [
     { url="/", title="Home", target=""},
@@ -29,5 +34,11 @@ navbar_links = [
     { url="https://github.com/xNS5", title="Github", target="_blank"},
     { url="https://www.linkedin.com/in/mw-kennedy/", title="Linkedin", target="_blank"},
     { url="/contact", title="Contact", target=""},
+]
+
+footer_links = [
+    { url="https://github.com/xNS5", title="Github Repository URL", css_class= "icon brands alt fa-github"},
+    { url="https://www.linkedin.com/in/mw-kennedy/", title="Linkedin URL", css_class="icon brands alt fa-linkedin"},
+    { url="mailto:michael@michaelkennedy.dev", title="Email Link", css_class="icon solid alt fa-envelope"}
 ]
 
