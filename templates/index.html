@@ -1,9 +1,4 @@
 {% extends "base.html" %}
-<!--
-	Photon by HTML5 UP
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-
 {% block title %}
 {{ config.extra.author }} - {{ section.title }}
 {% endblock title %}
@@ -74,20 +69,19 @@
 					<p>While I have worked on a number of projects during my schooling, these are the ones that I am the most proud of.</p>
 					<div class="row gtr-150">
 						{% set section = get_section(path="projects/_index.md") %}
-						{% for post in section.pages %}
-							<div class="col-4 col-12-medium">
-								<span class="image fit"><img src="" alt="" /></span>
-								<h3><strong>{{ post.title }}</strong> - {{ post.extra.tech }}</h3>
-								<p>{{ post.description }}</p>
-								<ul class="actions special">
-									<li><a href="#" class="button">More</a></li>
-								</ul>
-							</div>
+						{% for page in section.pages %}
+						<div class="col-4 col-12-medium">
+							<span class="image fit"><img src="" alt="" /></span>
+							<h3><strong>{{ page.title }}</strong> - {{ page.extra.tech }}</h3>
+							<p>{{ page.description }}</p>
+							<ul class="actions special">
+								<li><a href="/projects/{{page.slug}}" class="button">More</a></li>
+							</ul>
+						</div>
 						{% endfor %}
 					</div>
 				</div>
 			</section>
-
 		<!-- Four -->
 			<section id="four" class="main style2 special">
 				<div class="container">
@@ -96,7 +90,7 @@
 					</header>
 					<p>Feel free to get in touch!</p>
 					<ul class="actions special">
-						<li><a href="/contact" class="button wide primary">Contact Me</a></li>
+						<li><a href="mailto:michael@michaelkennedy.dev?subject=Get In Touch" class="button wide primary">Contact Me</a></li>
 					</ul>
 				</div>
 			</section>
