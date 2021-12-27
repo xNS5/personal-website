@@ -1,3 +1,4 @@
 +++
-title = "Projects"
+title = "My Projects"
+template = "projects.html"
 +++

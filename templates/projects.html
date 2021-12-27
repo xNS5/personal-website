@@ -1,8 +1,29 @@
 {% extends "base.html" %}
-<!--{% block title %}-->
-<!--{{ config.extra.author }} - {{ section.title }}-->
-<!--{% endblock title %}-->
+
+{% block title %}
+{{ config.extra.author }} - {{ section.title }}
+{% endblock title %}
 {% block content %}
 
+<section id="three" class="main style1 special">
+    <div class="container">
+        <header class="major">
+            <h2>My Projects</h2>
+        </header>
+        <div class="row gtr-150">
+            {% set section = get_section(path="projects/_index.md") %}
+            {% for page in section.pages %}
+            <div class="col-4 col-12-medium">
+                <span class="image fit"><img src="" alt="" /></span>
+                <h3><strong>{{ page.title }}</strong> - {{ page.extra.tech }}</h3>
+                <p>{{ page.description }}</p>
+                <ul class="actions special">
+                    <li><a href="/projects/{{page.slug}}" class="button">More</a></li>
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
 {% endblock %}
