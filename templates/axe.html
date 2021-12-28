@@ -4,7 +4,7 @@
 {% endblock title %}
 {% block content %}
 <div>
-    {%set page = get_page(path="projects/axe/about.md")%}
-    <p> {{ page.content | safe }}</p>
+    <h1><strong>{{ section.title | safe}}</strong></h1>
+    <p>{{ section.content | safe }}</p>
 </div>
 {% endblock content %}
