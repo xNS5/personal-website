@@ -16,12 +16,12 @@
 				</div>
 			</section>
 
-		<!-- One -->
+		<!-- About -->
 			<section id="one" class="main style1">
 				<div class="container">
 					<div class="row gtr-150">
 						<div class="col-6 col-12-medium imp-medium">
-							<span class="image fit"><img src="{{config.extra.profile_picture}}" alt="A picture of me wearing red sunglasses and a hat, smiling at the camera." /></span>
+							<span class="image fit profile"><img src="{{config.extra.profile_picture}}" alt="A picture of me wearing red sunglasses and a hat, smiling at the camera." /></span>
 						</div>
 						<div class="col-6 col-12-medium">
 							<p>{{ section.content | safe }}</p>
@@ -33,7 +33,7 @@
 				</div>
 			</section>
 
-		<!-- Two -->
+		<!-- Technology -->
 			<section id="two" class="main style2">
 				{% set tech = get_page(path="technologies.md") %}
 				<div class="container">
@@ -58,7 +58,7 @@
 				</div>
 			</section>
 
-		<!-- Three -->
+		<!-- Projects -->
 			<section id="three" class="main style1 special">
 				<div class="container">
 					<header class="major">
@@ -81,5 +81,17 @@
 					</div>
 				</div>
 			</section>
+
+		<!-- Contact -->
+		<section id="four" class="main style2 special">
+			<div class="container">
+				<header class="major">
+					<h2>Want to get in touch?</h2>
+				</header>
+				<ul class="actions special">
+					<li><a href="#" class="button wide" style="mix-blend-mode: normal">Contact Me</a></li>
+				</ul>
+			</div>
+		</section>
 	</body>
 {% endblock content %}

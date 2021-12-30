@@ -155,6 +155,7 @@ input, select, textarea {
 
 	p {
 		margin: 0 0 2em 0;
+		font-weight: 500;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -2765,6 +2766,7 @@ input, select, textarea {
 		button.wide,
 		.button.wide {
 			min-width: 12em;
+			color: #ffffff;
 		}
 
 		input[type="submit"].primary,
@@ -2819,7 +2821,7 @@ input, select, textarea {
 		.main.style2 {
 			color: rgba(255, 255, 255, 255);
 			background-attachment: fixed;
-			background-image: linear-gradient(rgba(34, 92, 14,0.8), rgba( 0,0,0,0.8)), url("images/header.jpg");
+			background-image: linear-gradient(rgba(0, 0, 0,0.1), rgba( 0,0,0,0.8)), url("images/header.jpg");
 			background-size: cover;
 		}
 
@@ -2848,8 +2850,9 @@ input, select, textarea {
 			.main.style2 input[type="button"],
 			.main.style2 button,
 			.main.style2 .button {
-				box-shadow: inset 0 0 0 1px #ffffff;
+				box-shadow: inset 0 0 0 2px #ffffff;
 				color: #ffffff !important;
+				font-weight: bold;
 			}
 
 				.main.style2 input[type="submit"]:hover,
@@ -2874,7 +2877,7 @@ input, select, textarea {
 				.main.style2 button.primary,
 				.main.style2 .button.primary {
 					background-color: #ffffff;
-					box-shadow: inset 0 0 0 1px #ffffff !important;
+					box-shadow: inset 0 0 0 2px #ffffff !important;
 					color: #333 !important;
 				}
 
@@ -2907,9 +2910,8 @@ input, select, textarea {
 
 	#header {
 		padding: 9em 0 10em 0 ;
-		background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 1)), url("images/hero_image.jpg");
+		background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1)), url("images/hero_image.jpg");
 		background-position: center;
-		/*background-position: center;*/
 		background-size: cover;
 		overflow: hidden;
 		position: relative;
@@ -3281,6 +3283,16 @@ input, select, textarea {
 				background-attachment: scroll;
 			}
 
+		/* Image */
+		.image.fit {
+			width: 75%;
+		}
+
+		.profile {
+			margin: auto !important;
+			display: block !important;
+		}
+
 	}
 
 /* Medium */
@@ -3288,6 +3300,10 @@ input, select, textarea {
 	@media screen and (max-width: 980px) {
 
 		/* List */
+
+		p{
+			font-size: 24px;
+		}
 
 			ul.major-icons li {
 				padding: 2em;
@@ -3329,6 +3345,11 @@ input, select, textarea {
 				text-align: center;
 			}
 
+		/*	Profile Image */
+		.image.fit {
+			width: 50%;
+		}
+
 	}
 
 /* Small */
@@ -3356,6 +3377,7 @@ input, select, textarea {
 			h4 {
 				font-size: 1em;
 			}
+
 
 		/* List */
 
