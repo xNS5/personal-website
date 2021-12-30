@@ -5,4 +5,18 @@
 {% block content %}
 
 
+
+<section class="main style1">
+    <div class="container">
+        <header class="major">
+            <a class="project_title" href="{{section.extra.repo}}"><h1><strong>{{ section.title | safe}}</strong></h1></a>
+            <h3><i>{{ section.description | safe }}</i></h3>
+            <h4>{{ section.extra.tech | safe }}</h4>
+        </header>
+    </div>
+   <div class="container">
+       <img src="{{ section.extra.logo }}" alt="ReLeave Logo" style="display: block;  margin-left: auto; margin-right: auto;  width: 15%;"/>
+       {{ section.content | safe }}
+   </div>
+</section>
 {% endblock content %}

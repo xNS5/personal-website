@@ -40,7 +40,6 @@ I falsely assumed that if I created a virtual environment folder for just a *nix
 2. Python on Windows 10 has a different virtual environment structure, so checks needed to be added to ensure that the right environment was used whenever the spider is run.
 
 
-
 ## Demonstration
 
 [![Youtube Video Preview of the WWU ACE project video](http://img.youtube.com/vi/pBowDT5dDmA/0.jpg)](http://www.youtube.com/watch?v=pBowDT5dDmA "WWU ACE Demo Video")

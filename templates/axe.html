@@ -5,23 +5,12 @@
 {% block content %}
 
 <style>
-    a h1 strong:hover{
-        color: dodgerblue;
-        text-decoration: underline;
-    }
-   h2 {
-       font-size: 1.5em;
-       text-decoration: underline;
-    }
-   content{
-
-   }
 </style>
 
 <section class="main style1">
     <div class="container">
         <header class="major">
-            <a href="{{section.extra.repo}}"><h1 class="project-title"><strong>{{ section.title | safe}}</strong></h1></a>
+            <a class="projecti_title" href="{{section.extra.repo}}"><h1><strong>{{ section.title | safe}}</strong></h1></a>
             <h3><i>{{ section.description | safe }}</i></h3>
             <h4>{{ section.extra.tech | safe }}</h4>
         </header>
@@ -30,9 +19,4 @@
        <content> {{ section.content | safe }} </content>
    </div>
 </section>
-<section class="main">
-
-</section>
-<div>
-</div>
 {% endblock content %}
