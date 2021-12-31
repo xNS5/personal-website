@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% block title %}
+{{ config.extra.author }} - {{ section.title }}
+{% endblock title %}
+{% block content %}
+
+<style>
+    /* Style inputs with type="text", select elements and textareas */
+    input[type=text], input[type=email], textarea {
+        width: 100%; /* Full width */
+        padding: 12px; /* Some padding */
+        border: 1px solid #ccc; /* Gray border */
+        border-radius: 4px; /* Rounded borders */
+        box-sizing: border-box; /* Make sure that padding and width stays in place */
+        margin-top: 10px; /* Add a top margin */
+        margin-bottom: 1em; /* Bottom margin */
+        resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+    }
+
+    /* Add a background color and some padding around the form */
+    .contact_container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+
+    .modal {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(1.1);
+        transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    }
+
+    .modal-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 1rem 1.5rem;
+        width: 24rem;
+        border-radius: 0.5rem;
+    }
+
+    .close-button {
+        float: right;
+        width: 1.5rem;
+        line-height: 1.5rem;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 0.25rem;
+        background-color: lightgray;
+    }
+
+    .close-button:hover {
+        background-color: darkgray;
+    }
+
+    .show-modal {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1.0);
+        transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+    }
+
+</style>
+
+<script src="https://www.google.com/recaptcha/api.js?onload=onCaptchaLoadCallback" async defer></script>
+<script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+
+<div class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h1>Thank you for reaching out!</h1>
+        <p>Thank you for reaching out to me! I'll get in touch with you as soon as I can.</p>
+        <button onclick='document.getElementById("contact-form").submit();' class="pageclip-form__submit">Close</button>
+    </div>
+</div>
+
+<section class="main style1 ">
+    <header class="major" style="text-align: center">
+        {{ section.content | safe}}
+    </header>
+    <div class="container contact_container">
+        <form id="contact-form" class="pageclip-form" action="https://send.pageclip.co/xsgAwzGUPZLGLFaGYgXtzqLpxkxflZYh/contact-form" onload="onFormLoad();" onsubmit="return false;" method="POST">
+            <label for="inputName">Full Name</label>
+                <input type="text" id="inputName" name="Name" placeholder="Firstname Lastname" required>
+
+            <label for="email">Email</label>
+                <input type="email" id="email" name="Email" placeholder="example@mail.com" required>
+
+            <label for="message">Message</label>
+                <textarea id="message" name="Message" style="height:200px" required></textarea>
+            <input id="btnsubmit" type="submit" value="Submit" class="trigger">
+        </form>
+<!--        <div id="g-recaptcha" class="g-recaptcha" data-sitekey="6LcYFqsdAAAAAPBADsZ5-FZ4QxRz22HQbiKmIR31" data-expired-callback="onCaptchaExpire" data-callback="onCaptchaData"></div>-->
+    </div>
+
+</section>
+<script type="text/javascript">
+    const modal = document.querySelector(".modal");
+    const trigger = document.querySelector(".trigger");
+    const closeButton = document.querySelector(".close-button");
+    function toggleModal() {
+        modal.classList.toggle("show-modal");
+    }
+    function windowOnClick(event) {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    }
+    function onFormLoad(){
+        document.getElementById("contact-form").reset();
+        // document.getElementById("btnsubmit").disabled = true;
+    }
+    function onCaptchaExpire(){
+        // document.getElementById("btnsubmit").disabled = true;
+    }
+    function onCaptchaData(){
+        // document.getElementById("btnsubmit").disabled = false;
+    }
+    function submitForm(){
+        document.getElementById("contact-form").submit();
+    }
+    document.getElementById("btnsubmit").onclick = function (){
+        setTimeout("submitForm()", 10000);
+    }
+    trigger.addEventListener("click", toggleModal);
+    closeButton.addEventListener("click", toggleModal);
+    window.addEventListener("click", windowOnClick);
+</script>
+{% endblock content %}
+
+
