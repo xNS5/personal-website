@@ -98,9 +98,9 @@
 
             <label for="message">Message</label>
                 <textarea id="message" name="Message" style="height:200px" required></textarea>
-            <input id="btnsubmit" type="submit" value="Submit" class="trigger">
+            <input id="btnsubmit" type="submit" value="Submit" class="trigger" disabled>
         </form>
-<!--        <div id="g-recaptcha" class="g-recaptcha" data-sitekey="6LcYFqsdAAAAAPBADsZ5-FZ4QxRz22HQbiKmIR31" data-expired-callback="onCaptchaExpire" data-callback="onCaptchaData"></div>-->
+        <div id="g-recaptcha" class="g-recaptcha" data-sitekey="6LcYFqsdAAAAAPBADsZ5-FZ4QxRz22HQbiKmIR31" data-expired-callback="onCaptchaExpire" data-callback="onCaptchaData"></div>
     </div>
 
 </section>
@@ -118,13 +118,13 @@
     }
     function onFormLoad(){
         document.getElementById("contact-form").reset();
-        // document.getElementById("btnsubmit").disabled = true;
+        document.getElementById("btnsubmit").disabled = true;
     }
     function onCaptchaExpire(){
-        // document.getElementById("btnsubmit").disabled = true;
+        document.getElementById("btnsubmit").disabled = true;
     }
     function onCaptchaData(){
-        // document.getElementById("btnsubmit").disabled = false;
+        document.getElementById("btnsubmit").disabled = false;
     }
     function submitForm(){
         document.getElementById("contact-form").submit();
