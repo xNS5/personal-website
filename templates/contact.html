@@ -39,7 +39,7 @@
 
             <label for="message">Message</label>
                 <textarea id="message" name="Message" style="height:200px" required></textarea>
-            <input id="btnsubmit" type="submit" value="Submit" class="pageclip-form__submit" disabled>
+            <input id="btnsubmit" type="submit" value="Submit" class="pageclip-form__submit" onclick="window.location.href = '{{ config.base_url }}';" disabled>
         </form>
         <div role="button" id="g-recaptcha" class="g-recaptcha" data-sitekey="6LcYFqsdAAAAAPBADsZ5-FZ4QxRz22HQbiKmIR31" data-expired-callback="onCaptchaExpire" data-callback="onCaptchaData"></div>
     </div>
