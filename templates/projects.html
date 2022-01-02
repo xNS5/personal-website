@@ -18,7 +18,7 @@
             {% for path in section.subsections %}
             {% set page = get_section(path=path) %}
             <div class="col-4 col-12-medium">
-                <span class="image fit profile"><img src="{{page.permalink}}{{page.extra.logo}}" class="project_logo" alt="{{ page.extra.alt }}"/></span>
+                <span class="image"><img src="{{page.permalink}}{{page.extra.logo}}" class="project_logo" alt="{{ page.extra.alt }}"/></span>
                 <h2><strong>{{ page.title }}</strong> - {{ page.extra.tech }}</h2>
                 <p>{{ page.description }}</p>
                 <ul class="actions special">

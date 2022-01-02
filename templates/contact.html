@@ -7,14 +7,7 @@
 <style>
     /* Style inputs with type="text", select elements and textareas */
     input[type=text], input[type=email], textarea {
-        width: 100%; /* Full width */
-        padding: 12px; /* Some padding */
-        border: 1px solid #ccc; /* Gray border */
-        border-radius: 4px; /* Rounded borders */
-        box-sizing: border-box; /* Make sure that padding and width stays in place */
-        margin-top: 10px; /* Add a top margin */
-        margin-bottom: 1em; /* Bottom margin */
-        resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+
     }
 
     /* Add a background color and some padding around the form */
@@ -48,7 +41,7 @@
 
             <label for="message">Message</label>
                 <textarea id="message" name="Message" style="height:200px" required></textarea>
-            <input id="btnsubmit" type="button" value="Submit" class="trigger" onclick="return submitForm();" disabled>
+            <input id="btnsubmit" type="button" value="Submit" class="trigger" style="margin: 1em 0;" onclick="return submitForm();" disabled>
         </form>
         <div role="button" id="g-recaptcha" class="g-recaptcha" data-sitekey="6LcYFqsdAAAAAPBADsZ5-FZ4QxRz22HQbiKmIR31" data-expired-callback="onCaptchaExpire" data-callback="onCaptchaData"></div>
     </div>

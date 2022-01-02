@@ -266,7 +266,7 @@ input, select, textarea {
 	}
 
 	.project_logo{
-		width: 50% !important;
+		width: 50%;
 		height: auto;
 		margin-left: auto;
 		margin-right: auto;
@@ -2121,6 +2121,11 @@ input, select, textarea {
 		padding: 0 1em;
 		text-decoration: none;
 		width: 100%;
+		border: 1px solid #ccc; /* Gray border */
+		box-sizing: border-box; /* Make sure that padding and width stays in place */
+		margin-top: 10px; /* Add a top margin */
+		margin-bottom: 1em; /* Bottom margin */
+		resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
 	}
 
 		input[type="text"]:invalid,
@@ -2158,7 +2163,8 @@ input, select, textarea {
 	input[type="password"],
 	input[type="email"],
 	select {
-		height: 2.75em;
+		height: 1.75em;
+		padding: 1em;
 	}
 
 	textarea {
@@ -2403,7 +2409,7 @@ input, select, textarea {
 		.image.fit {
 			display: block;
 			margin: 0 0 2em 0;
-			width: 100%;
+			width: 100% !important;
 		}
 
 			.image.fit img {
@@ -3408,6 +3414,10 @@ input, select, textarea {
 			width: 75%;
 		}
 
+		.project_logo{
+			width: 25% !important;
+		}
+
 		.profile {
 			margin: auto !important;
 			display: block !important;
@@ -3421,7 +3431,8 @@ input, select, textarea {
 
 		/* List */
 		p{
-			font-size: 24px;
+			font-size: 1.5rem;
+			text-align: left;
 		}
 
 			ul.major-icons li {
@@ -3496,22 +3507,31 @@ input, select, textarea {
 				font-size: 1em;
 			}
 
+		/*	Navbar */
+		.nav.responsive a{
+			text-align: center;
+		}
+
 
 		/* List */
 
-			ul.major-icons li {
-				padding: 1.5em;
+			ul.major-icons{
+				display: none;
 			}
 
-				ul.major-icons li .icon {
-					height: 5em;
-					line-height: 5em;
-					width: 5em;
-				}
+			/*ul.major-icons li {*/
+			/*	padding: 1.5em;*/
+			/*}*/
 
-					ul.major-icons li .icon:before {
-						font-size: 42px;
-					}
+			/*	ul.major-icons li .icon {*/
+			/*		height: 5em;*/
+			/*		line-height: 5em;*/
+			/*		width: 5em;*/
+			/*	}*/
+
+			/*		ul.major-icons li .icon:before {*/
+			/*			font-size: 42px;*/
+			/*		}*/
 
 		/* Icon */
 
@@ -3581,6 +3601,7 @@ input, select, textarea {
 
 			#header {
 				padding: 4em 2em 4em 2em ;
+				font-size: 1rem;
 			}
 
 				#header br {
