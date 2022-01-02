@@ -30,7 +30,6 @@
         <span class="close-button">&times;</span>
         <h1>Thank you for reaching out!</h1>
         <p>Thank you for reaching out to me! I'll get in touch with you as soon as I can.</p>
-        <button onclick='document.getElementById("contact-form").submit();' class="pageclip-form__submit">Close</button>
     </div>
 </div>
 
@@ -49,7 +48,7 @@
 
             <label for="message">Message</label>
                 <textarea id="message" name="Message" style="height:200px" required></textarea>
-            <input id="btnsubmit" type="button" value="Submit" class="pageclip-form__submit" onclick="return submitForm();" disabled>
+            <input id="btnsubmit" type="button" value="Submit" class="pageclip-form__submit trigger" onclick="return submitForm();" disabled>
         </form>
         <div role="button" id="g-recaptcha" class="g-recaptcha" data-sitekey="6LcYFqsdAAAAAPBADsZ5-FZ4QxRz22HQbiKmIR31" data-expired-callback="onCaptchaExpire" data-callback="onCaptchaData"></div>
     </div>
