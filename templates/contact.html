@@ -55,6 +55,9 @@
     function submitForm(){
         document.getElementById("contact-form").submit();
     }
+    document.getElementById("btnsubmit").onclick = function (){
+        setTimeout("submitForm()", 3000);
+    }
     window.onload = function(){
         document.getElementById("contact-form").reset();
         document.getElementById("btnsubmit").disabled = true;
