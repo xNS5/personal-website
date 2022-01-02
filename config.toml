@@ -24,12 +24,12 @@ resume="MichaelKennedy_Resume.pdf"
 
 navbar_links = [
     { url= "", title="Home", target=""},
-    { url="/projects/", title="Projects", target=""},
+    { url="projects/", title="Projects", target=""},
 #     { url="photography", title="Photography", target=""},
-    { url="/resume/", title="Resume", target=""},
+    { url="resume/", title="Resume", target=""},
     { url="https://github.com/xNS5", title="Github", target="_blank"},
     { url="https://www.linkedin.com/in/mw-kennedy/", title="Linkedin", target="_blank"},
-    { url="/contact/", title="Contact", target=""},
+    { url="contact/", title="Contact", target=""},
 ]
 
 footer_links = [
