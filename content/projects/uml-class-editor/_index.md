@@ -1,10 +1,13 @@
 +++
 title = "UML Class Editor"
 description = "An Android application for drawing UML diagrams."
-template = "uml-class-editor.html"
+template = "project.html"
+draft = false
 [extra]
 tech = "Java, Android"
 repo = "https://github.com/xNS5/UmlClassEditor"
+logo = "uml.png"
+alt = "The UML Project Logo, a picture of boxes connected by lines."
 +++
 
 ## About UML Class Editor
@@ -28,8 +31,9 @@ and replicate the actions that caused the application to crash.
 This was a great application, but I had some issues with the way it was initially coded. Firstly, the author didn't wrap file/data operations
 in `try(){...}catch(){}` blocks, which is why the application was crashing initially. I was trying to run a delete operation when I had no saved projects
 which threw a `NullPointerException()`, causing the application to crash. That was an easy fix. The next issue I came across was that the application
-used a deprecated API for loading/exporting data, [`onActivityResult()`](https://developer.android.com/reference/android/app/Activity#onActivityResult(int,%20int,%20android.content.Intent)). This wasn't causing the crash, but it was something that needed to be addressed. This took a bit more time
-to figure out as I didn't fully understand what it did, and how to implement the correct API, [`registerForActivityResult()`](https://developer.android.com/reference/androidx/activity/result/ActivityResultCaller#registerForActivityResult(androidx.activity.result.contract.ActivityResultContract%3CI,%20O%3E,%20androidx.activity.result.ActivityResultCallback%3CO%3E))
+used a deprecated API for loading/exporting data, [`onActivityResult()`](https://developer.android.com/reference/android/app/Activity#onActivityResult(int,%20int,%20android.content.Intent)). 
+This wasn't causing the crash, but it was something that needed to be addressed. This took a bit more time to figure out as I didn't fully understand what it did, and how to implement the correct API, 
+[`registerForActivityResult()`](https://developer.android.com/reference/androidx/activity/result/ActivityResultCaller#registerForActivityResult(androidx.activity.result.contract.ActivityResultContract%3CI,%20O%3E,%20androidx.activity.result.ActivityResultCallback%3CO%3E)).
 
 
 ## Roadmap

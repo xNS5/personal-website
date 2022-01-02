@@ -1,19 +1,6 @@
-{% extends "base.html" %}
+{% extends "projects.html" %}
 {% block title %}
 {{ config.extra.author }} - {{ section.title }}
 {% endblock title %}
 {% block content %}
-
-<section class="main style1">
-    <div class="container">
-        <header class="major">
-            <a class="projecti_title" href="{{section.extra.repo}}"><h1><strong>{{ section.title | safe}}</strong></h1></a>
-            <h3><i>{{ section.description | safe }}</i></h3>
-            <h4>{{ section.extra.tech | safe }}</h4>
-        </header>
-    </div>
-   <div class="container">
-       <content> {{ section.content | safe }} </content>
-   </div>
-</section>
 {% endblock content %}

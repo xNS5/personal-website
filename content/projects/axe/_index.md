@@ -1,10 +1,13 @@
 +++
 title = "WWU Accessibility Engine (ACE)"
 description = "A full-stack accessibility automation tool developed for Wandke Consulting in Bellingham, Washington."
-template = "axe.html"
+template = "project.html"
+draft = false
 [extra]
 tech = "Javascript (Vue/Sails), HTML + CSS, Python"
 repo = "https://github.com/xNS5/Axe-Core-Enhancements"
+logo = "accessibility.png"
+alt = "WWU ACE Logo -- An Accessibility symbol of a person surrounded by a circle."
 +++
 
 ## About ACE

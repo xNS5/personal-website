@@ -1,11 +1,13 @@
 +++
 title = "ReLeave"
 description = "A cross-platform mobile application designed to aid a person going through Cannabis abuse recovery."
-template = "releave.html"
+template = "project.html"
+draft = false
 [extra]
 tech = "Flutter (Dart), SQlite"
 repo = "https://github.com/xNS5/ReLeave"
-logo = "./logo.png"
+logo = "releave.png"
+alt = "The ReLeave project logo, a series of colored blocks forming the letter R."
 +++
 
 ## About ReLeave

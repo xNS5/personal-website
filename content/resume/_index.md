@@ -1,12 +1,7 @@
 +++
 title = "Resume"
 template = "resume.html"
+[extra]
+resume = "MichaelKennedy_Resume.pdf"
 +++
 
-<div id="root">
-    <iframe src="./MichaelKennedy_Resume.pdf">
-        <p>
-            If you're seeing this, your browser does not support inline frames.
-        </p>
-    </iframe>
-</div>
