@@ -1,4 +1,6 @@
 +++
-title="Contact"
-template="contact.html"
+title = "Contact Me"
+template = "contact.html"
 +++
+
+# Want to get in touch? 

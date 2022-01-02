@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
     <head>
       <meta charset="utf-8">
       <title> {% block title %}{% endblock %}</title>
@@ -11,15 +11,19 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+      <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
     </head>
   <body>
-  {% block content %}
-  {% endblock %}
-  <body>
+  <nav class="topnav" id="topnav" >
+  </nav>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
   <footer id="footer">
     <ul class="icons">
-      {% for url in config.extra.footer_links%}
-        <li><a href='{{url.url}}' target="_blank" aria-label='{{url.title}}' class='{{url.css_class}}'><span class="label">{{url.title}}</span></a></li>
+      {% for url in config.extra.footer_links %}
+        <li><a href='{{ url.url | safe }}' target="_blank" aria-label='{{url.title}}' class='{{url.css_class}}'><span class="label">{{url.title}}</span></a></li>
       {% endfor %}
     </ul>
     <ul class="copyright">
@@ -27,11 +31,46 @@
     </ul>
   </footer>
 
+
+  <script type="text/javascript">
+
+    function toggleNav() {
+      var navbar = document.getElementById("topnav");
+      if (navbar.className === "topnav") {
+        navbar.className += " responsive";
+      } else {
+        navbar.className = "topnav";
+      }
+    }
+
+    window.onload= function(){
+      var navbar = document.getElementById("topnav");
+      {% for url in config.extra.navbar_links %}
+        var a = document.createElement('a');
+        a.innerText = "{{ url.title | safe}} ";
+        if( !("{{url.url | safe }}".includes("http") || "{{url.url | safe }}".includes("https"))){
+          a.href = "{{ config.base_url | safe }}{{ url.url | safe }}";
+          if("{{ section.permalink | safe }}" === a.href){
+            a.setAttribute("class", "active");
+          }
+        } else {
+          a.href = "{{ url.url | safe }}";
+        }
+        if("{{ url.target | safe }}".length > 0){
+          a.target = "{{ url.target | safe}}";
+        }
+        navbar.appendChild(a);
+      {% endfor %}
+      navbar.innerHTML += '<a href="javascript:void(0);" class="icon"><i class="fa fa-bars" onclick="toggleNav()"></i></a>'
+    }
+  </script>
   <script type="text/javascript" src='{{ get_url(path="js/jquery.min.js") }}'></script>
   <script type="text/javascript" src='{{ get_url(path="js/jquery.scrolly.min.js") }}'></script>
   <script type="text/javascript" src='{{ get_url(path="js/browser.min.js") }}'></script>
   <script type="text/javascript" src='{{ get_url(path="js/breakpoints.min.js") }}'></script>
-  <script type="text/javascript" src='{{ get_url(path="js/main.js")}}'></script>
+  <script type="text/javascript" src='{{ get_url(path="js/main.js") }}'></script>
   <script type="text/javascript" src='{{ get_url(path="js/util.js") }}'></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
   </body>
 </html>

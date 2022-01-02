@@ -1,7 +1,32 @@
 {% extends "base.html" %}
-
-{% block title %}{{ config.extra.author }} - {{ section.title }}{% endblock title %}
-
-
+{% block title %}
+{{ config.extra.author }} - {{ section.title }}
+{% endblock title %}
 {% block content %}
-{% endblock content %}
+{% set section = get_section(path="projects/_index.md") %}
+<style>
+    #footer{
+        margin-top: 25vh;
+    }
+</style>
+<section id="one" class="main style1 special">
+    <div class="container">
+        <header class="major">
+            <h1>My Projects</h1>
+        </header>
+        <div class="row gtr-150">
+            {% for path in section.subsections %}
+            {% set page = get_section(path=path) %}
+            <div class="col-4 col-12-medium">
+                <span class="image fit profile"><img src="{{page.permalink}}{{page.extra.logo}}" class="project_logo" alt="{{ page.extra.alt }}"/></span>
+                <h2><strong>{{ page.title }}</strong> - {{ page.extra.tech }}</h2>
+                <p>{{ page.description }}</p>
+                <ul class="actions special">
+                    <li><a href="{{page.permalink}}" class="button">More</a></li>
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

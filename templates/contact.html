@@ -1,74 +1,68 @@
 {% extends "base.html" %}
-
 {% block title %}
 {{ config.extra.author }} - {{ section.title }}
 {% endblock title %}
 {% block content %}
+
 <style>
-    #footer{
-        display: none;
+    /* Style inputs with type="text", select elements and textareas */
+    input[type=text], input[type=email], textarea {
+        width: 100%; /* Full width */
+        padding: 12px; /* Some padding */
+        border: 1px solid #ccc; /* Gray border */
+        border-radius: 4px; /* Rounded borders */
+        box-sizing: border-box; /* Make sure that padding and width stays in place */
+        margin-top: 10px; /* Add a top margin */
+        margin-bottom: 1em; /* Bottom margin */
+        resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+    }
+
+    /* Add a background color and some padding around the form */
+    .contact_container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
     }
 </style>
 
-<div class="contact">
-<h1 class="is-center">Contact Me</h1>
+<section class="main style1 ">
+    <header class="major" style="text-align: center">
+        {{ section.content | safe}}
+    </header>
+    <div class="container contact_container">
+        <form id="contact-form" class="pageclip-form" action="https://send.pageclip.co/xsgAwzGUPZLGLFaGYgXtzqLpxkxflZYh/contact-form" onsubmit="return false;" method="POST">
+            <label for="inputName">Full Name</label>
+                <input type="text" id="inputName" name="Name" placeholder="Firstname Lastname" required>
 
-<form class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net"
-      action="https://script.google.com/macros/s/AKfycbwCoDUL2O5dQmFR1MWvsCwU0Inp1DEw5KPBF_HD0P1Is5kktZ3YwcKfCfi8aj-UchfErg/exec">
-    <!-- change the form action to your script url -->
+            <label for="email">Email</label>
+                <input type="email" id="email" name="Email" placeholder="example@mail.com" required>
 
-    <div class="form-elements">
-        <fieldset class="pure-group">
-            <label for="name">First and Last Name: </label>
-            <input id="name" name="name" required/>
-        </fieldset>
-
-        <fieldset class="pure-group">
-            <label for="email">Your Email Address:</label>
-            <input id="email" name="email" type="email" value=""
-                   required/>
-        </fieldset>
-
-        <fieldset class="pure-group">
-            <label for="message">Message: </label>
-            <textarea id="message" name="message" rows="10"
-                  required></textarea>
-        </fieldset>
-
-        <fieldset>
-            <button id="sendButton"  class="button-success pure-button button-xlarge" disabled>
-                <i class="fa fa-paper-plane"></i>Send</button>
-        </fieldset>
+            <label for="message">Message</label>
+                <textarea id="message" name="Message" style="height:200px" required></textarea>
+            <input id="btnsubmit" type="submit" value="Submit" class="pageclip-form__submit" disabled>
+        </form>
+        <div role="button" id="g-recaptcha" class="g-recaptcha" data-sitekey="6LcYFqsdAAAAAPBADsZ5-FZ4QxRz22HQbiKmIR31" data-expired-callback="onCaptchaExpire" data-callback="onCaptchaData"></div>
     </div>
 
-    <form action="?" method="POST">
-        <div class="g-recaptcha" data-sitekey="6LcYFqsdAAAAAPBADsZ5-FZ4QxRz22HQbiKmIR31" data-callback="enableBtn"></div>
-    </form>
-
-    <!-- Customise the Thankyou Message People See when they submit the form: -->
-    <div class="thankyou_message" style="display:none;">
-        <h2>Thanks for reaching out!<br/>
-            I will get back to you as soon as I can.</h2>
-    </div>
-
-</form>
-</div>
-
-<!-- Submit the Form to Google Using "AJAX" -->
-<script data-cfasync="false" type="text/javascript" src='{{ get_url(path="js/form-submission-handler.js")}}'></script>
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-        async defer>
-</script>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</section>
 <script type="text/javascript">
-    var onloadCallback = function() {
-        document.getElementById("sendButton").setAttribute("disabled", "");
-    };
-    function enableBtn(){
-        document.getElementById("sendButton").removeAttribute("disabled");
-    };
+    function onCaptchaExpire(){
+        document.getElementById("btnsubmit").disabled = true;
+    }
+    function onCaptchaData(){
+        document.getElementById("btnsubmit").disabled = false;
+    }
+    function submitForm(){
+        document.getElementById("contact-form").submit();
+    }
+    document.getElementById("btnsubmit").onclick = function (){
+        setTimeout("submitForm()", 3000);
+    }
+    window.onload = function(){
+        document.getElementById("contact-form").reset();
+        document.getElementById("btnsubmit").disabled = true;
+    }
 </script>
-<!-- END -->
+{% endblock content %}
 
 
-{% endblock content%}
