@@ -3575,7 +3575,13 @@ input, select, textarea {
 		.project-logo{
 			width: 15%;
 		}
-
+		#email{
+			width: 100%;
+		}
+		#btnsubmit{
+			padding-left: 0.5em;
+			padding-right: 0.5em;
+		}
 	}
 
 /* XSmall */
