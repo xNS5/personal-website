@@ -23,7 +23,7 @@
   <footer id="footer">
     <ul class="icons">
       {% for url in config.extra.footer_links %}
-        <li><a href='{{url.url | safe }}' target="_blank" aria-label='{{url.title}}' class='{{url.css_class}}'><span class="label">{{url.title}}</span></a></li>
+        <li><a href='{{ url.url | safe }}' target="_blank" aria-label='{{url.title}}' class='{{url.css_class}}'><span class="label">{{url.title}}</span></a></li>
       {% endfor %}
     </ul>
     <ul class="copyright">
@@ -33,32 +33,35 @@
 
 
   <script type="text/javascript">
-    function myFunction() {
-        var x = document.getElementById("topnav");
-        if (x.className === "topnav") {
-          x.className += " responsive";
-        } else {
-          x.className = "topnav";
-        }
+
+    function toggleNav() {
+      var navbar = document.getElementById("topnav");
+      if (navbar.className === "topnav") {
+        navbar.className += " responsive";
+      } else {
+        navbar.className = "topnav";
+      }
     }
 
     window.onload= function(){
       var navbar = document.getElementById("topnav");
       {% for url in config.extra.navbar_links %}
-      var a = document.createElement('a');
-      a.innerText = "{{ url.title | safe}} ";
-      a.href = "{{ url.url | safe }}";
-      if("{{ url.target | safe }}".length > 0){
-        a.target = "{{ url.target | safe}}";
-      }
-      console.log(a.href)
-      if( !("{{url.url | safe }}".includes("http") || "{{url.url | safe }}".includes("https")) && window.location.href === a.href){
-        a.setAttribute("class", "active");
-      }
-      navbar.appendChild(a);
+        var a = document.createElement('a');
+        a.innerText = "{{ url.title | safe}} ";
+        if( !("{{url.url | safe }}".includes("http") || "{{url.url | safe }}".includes("https"))){
+          if(window.location.href === a.href){
+            a.setAttribute("class", "active");
+          }
+          a.href = "{{ config.base_url | safe }}{{ url.url | safe }}";
+        } else {
+          a.href = "{{ url.url | safe }}";
+        }
+        if("{{ url.target | safe }}".length > 0){
+          a.target = "{{ url.target | safe}}";
+        }
+        navbar.appendChild(a);
       {% endfor %}
-      navbar.innerHTML += ' <a href="javascript:void(0);" class="icon" onClick="myFunction()">' +
-              '<i class="fa fa-bars"></i></a>'
+      navbar.innerHTML += '<a href="javascript:void(0);" class="icon"><i class="fa fa-bars" onclick="toggleNav()"></i></a>'
     }
   </script>
   <script type="text/javascript" src='{{ get_url(path="js/jquery.min.js") }}'></script>
@@ -67,7 +70,7 @@
   <script type="text/javascript" src='{{ get_url(path="js/breakpoints.min.js") }}'></script>
   <script type="text/javascript" src='{{ get_url(path="js/main.js") }}'></script>
   <script type="text/javascript" src='{{ get_url(path="js/util.js") }}'></script>
-  <script src="https://www.google.com/recaptcha/api.js?onload=onCaptchaLoadCallback" async defer></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
   </body>
 </html>
