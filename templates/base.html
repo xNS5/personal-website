@@ -49,7 +49,7 @@
         var a = document.createElement('a');
         a.innerText = "{{ url.title | safe}} ";
         if( !("{{url.url | safe }}".includes("http") || "{{url.url | safe }}".includes("https"))){
-          a.href = "{{ config.base_url | safe }}/{{ url.url | safe }}/";
+          a.href = "{{ config.base_url | safe }}/{{ url.url | safe }}";
           if("{{ section.permalink | safe }}" === a.href){
             a.setAttribute("class", "active");
           }
