@@ -54,7 +54,6 @@
          } else {
            a.href = "{{ config.base_url | safe }}{{ url.url | safe }}/";
          }
-          console.log("{{ section.permalink | safe }}", a.href);
           if("{{ section.permalink | safe }}" === a.href){
             a.setAttribute("class", "active");
           }
