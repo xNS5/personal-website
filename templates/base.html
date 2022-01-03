@@ -12,6 +12,20 @@
       <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
       <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
+      <link id="light-scheme-icon" rel="shortcut icon" type="image/jpg" href='{{ get_url(path="icons/code-black.ico")}}'>
+      <link id="dark-scheme-icon" rel="shortcut icon" type="image/jpg" href='{{ get_url(path="icons/code-white.ico")}}'>
+
+
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QK10RKYRF7"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-QK10RKYRF7');
+      </script>
+
     </head>
   <body>
   <nav class="topnav" id="topnav" >
@@ -67,6 +81,21 @@
       {% endfor %}
       navbar.innerHTML += '<a href="javascript:void(0);" class="icon"><i class="fa fa-bars" onclick="toggleNav()"></i></a>'
     }
+
+    matcher = window.matchMedia('(prefers-color-scheme: dark)');
+    lightSchemeIcon = document.querySelector('link#light-scheme-icon');
+    darkSchemeIcon = document.querySelector('link#dark-scheme-icon');
+    matcher.addEventListener('change', event => {
+      if (event.matches) {
+        lightSchemeIcon.remove();
+        document.head.append(darkSchemeIcon);
+      } else {
+        document.head.append(lightSchemeIcon);
+        darkSchemeIcon.remove();
+      }
+    } );
+
+
   </script>
   <script type="text/javascript" src='{{ get_url(path="js/jquery.min.js") }}'></script>
   <script type="text/javascript" src='{{ get_url(path="js/jquery.scrolly.min.js") }}'></script>
