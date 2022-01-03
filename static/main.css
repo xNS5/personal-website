@@ -75,29 +75,26 @@ input, select, textarea {
 
 
 /* Contact Form CSS */
-.contact div{
+#contact-form div{
 	margin: 2em;
 }
-.contact .is-center {
+#contact-form .is-center {
 	text-align: center;
 }
-.contact .button-success {
+#contact-form .button-success {
 	color: white;
 	border-radius: 4px;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 	background: #5e81ac;
 }
-.contact .button-xlarge {
+#contact-form .button-xlarge {
 	font-size: 125%;
 }
-.contact button {
+#contact-form button {
 	float: right;
 }
-.contact #name, #email {
+#contact-form #name, #email {
 	width: 50%;
-}
-.contact .honeypot-field {
-	display: none;
 }
 
 /* Basic */
@@ -3604,7 +3601,7 @@ input, select, textarea {
 		.project-logo{
 			width: 15%;
 		}
-		#email{
+		#contact-form #name, #email {
 			width: 100%;
 		}
 		#btnsubmit{
