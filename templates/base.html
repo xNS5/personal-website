@@ -47,9 +47,13 @@
       var navbar = document.getElementById("topnav");
       {% for url in config.extra.navbar_links %}
         var a = document.createElement('a');
-        a.innerText = "{{ url.title | safe}} ";
+        a.innerText = "{{ url.title | safe}}";
         if( !("{{url.url | safe }}".includes("http") || "{{url.url | safe }}".includes("https"))){
-          a.href = "{{ config.base_url | safe }}/{{ url.url | safe }}/";
+         if("{{ url.title | safe }}" === "Home"){
+           a.href = "{{ config.base_url | safe }}";
+         } else {
+           a.href = "{{ config.base_url | safe }}{{ url.url | safe }}/";
+         }
           console.log("{{ section.permalink | safe }}", a.href);
           if("{{ section.permalink | safe }}" === a.href){
             a.setAttribute("class", "active");
