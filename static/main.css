@@ -272,6 +272,22 @@ input, select, textarea {
 		margin-right: auto;
 	}
 
+	.project_screenshot_mobile_right{
+		width: 25%;
+		float: right;
+		margin: 1em;
+	}
+
+	.project_screenshot_mobile_left{
+		width: 25%;
+		float: left;
+		margin: 1em;
+	}
+
+	.project_demo_video_embed{
+		padding: 1em;
+	}
+
 /* Container */
 
 	.container {
@@ -3479,6 +3495,19 @@ input, select, textarea {
 		.image.fit {
 			width: 50%;
 		}
+
+		/* Project Screenshots */
+		.project_screenshot_mobile_right{
+			width: 40%;
+			float: right;
+			margin: 2em;
+		}
+
+		.project_screenshot_mobile_left{
+			width: 40%;
+			float: left;
+			margin: 2em;
+		}
 	}
 
 /* Small */
@@ -3581,6 +3610,24 @@ input, select, textarea {
 		#btnsubmit{
 			padding-left: 0.5em;
 			padding-right: 0.5em;
+		}
+
+		/* Project Screenshots */
+
+		.project_screenshot_mobile_right{
+			width: 80%;
+			float: right;
+			margin: 1em;
+		}
+
+		.project_screenshot_mobile_left{
+			width: 80%;
+			float: left;
+			margin: 1em;
+		}
+
+		.project_demo_video_embed{
+			width: 95%;
 		}
 	}
 

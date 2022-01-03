@@ -16,6 +16,13 @@ in Bellingham, WA. My team and I spent a year working on a full-stack applicatio
 Web Content Accessibility Guidelines (WCAG). From there, they manually entered the data from the accessibility scan into a CSV file, added some comments such as information about the specific WCAG violation, how to remedy that specific violation, and any other relevant notes. In addition
 to aXe, it was requested that we also integrate [Crest](https://github.com/vmware/crest) by VMware -- another accessibility testing engine. This is another python-based engine, so the project may need to be refactored to include some sort of python server to run both the spider and Crest.
 
+## Demonstration
+
+<a href="http://www.youtube.com/watch?v=pBowDT5dDmA">
+<img class="project_demo_video_embed" src="http://img.youtube.com/vi/pBowDT5dDmA/0.jpg" alt="Youtube Video Preview of the WWU ACE project video">
+</a>
+
+
 ## Technologies Used
 This project uses Sails.js as the backend server, Vue.js as the frontend application, Selenium Webdriver to manipulate installed browsers, and Python to gather sub-pages of the inputted website to use as input on an accessibility scan. Initially the requirements included
 two applications, one to run the accessibility scan and one to edit the results of the scan prior to exporting it to a CSV or PDF file. After analyzing the requirements, our client decided that simply retuning the results in a CSV format -- removing the need for a second
@@ -41,8 +48,3 @@ I falsely assumed that if I created a virtual environment folder for just a *nix
 
 1. For some reason Windows 10 is missing a few features which prevents python from installing Scrapy -- the library we used to scrape for subpages of a website. 
 2. Python on Windows 10 has a different virtual environment structure, so checks needed to be added to ensure that the right environment was used whenever the spider is run.
-
-
-## Demonstration
-
-[![Youtube Video Preview of the WWU ACE project video](http://img.youtube.com/vi/pBowDT5dDmA/0.jpg)](http://www.youtube.com/watch?v=pBowDT5dDmA "WWU ACE Demo Video")
