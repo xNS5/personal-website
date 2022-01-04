@@ -19,7 +19,7 @@ description = "A personal website for a new graduate software developer"
 profile_picture = "images/profile_picture.png"
 header_image = "images/hero_image.jpg"
 stylesheet = "main.css"
-copyright = "Michael Kennedy © 2021"
+copyright = "Michael Kennedy © 2022"
 resume = "MichaelKennedy_Resume.pdf"
 favicon = "moon.ico"
 

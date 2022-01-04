@@ -5,7 +5,7 @@ template = "project.html"
 draft = false
 [extra]
 tech = "Javascript (Vue/Sails), HTML + CSS, Python"
-repo = "https://github.com/xNS5/Axe-Core-Enhancements"
+repo = "https://github.com/xNS5/WWU-Accessibility-Engine"
 logo = "accessibility.png"
 alt = "WWU ACE Logo -- An Accessibility symbol of a person surrounded by a circle."
 +++

@@ -12,12 +12,12 @@
 <section id="one" class="main style1 special">
     <div class="container">
         <header class="major">
-            <h1>My Projects</h1>
+            <h1><strong>My Projects</strong></h1>
         </header>
         <div class="row gtr-150">
             {% for path in section.subsections %}
             {% set page = get_section(path=path) %}
-            <div class="col-4 col-12-medium">
+            <div class="col-4 col-12-large">
                 <span class="image"><img src="{{page.permalink}}{{page.extra.logo}}" class="project_logo" alt="{{ page.extra.alt }}"/></span>
                 <h2><strong>{{ page.title }}</strong> - {{ page.extra.tech }}</h2>
                 <p>{{ page.description }}</p>

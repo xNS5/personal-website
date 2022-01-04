@@ -1,6 +1,6 @@
 +++
 title = "UML Class Editor"
-description = "An Android application for drawing UML diagrams."
+description = "An Android application for creating UML diagrams."
 template = "project.html"
 draft = false
 [extra]

@@ -5,9 +5,9 @@
 {% block content %}
 	<body class="is-preload">
 		<!-- Header -->
-			<section id="header">
+			<section title="The header section, with a terminal prompt icon and text in the foreground, with a picture of the Pike Place Public Market sign in the background" id="header">
 				<div class="inner">
-					<span class="icon solid major fa-cloud"></span>
+					<span class="icon solid major fa-terminal"></span>
 					<h1 id="intro">Hi, I'm <strong>Michael</strong> -- a graduate<br />
 					of Western Washington University</h1>
 				</div>
@@ -31,23 +31,23 @@
 			</section>
 
 		<!-- Technology -->
-			<section id="two" class="main style2">
+			<section title="Section two, icons and text in the foreground with a picture of flowers taken at Asilomar State Park in Pacific Grove California." id="two" class="main style2">
 				{% set tech = get_page(path="technologies.md") %}
 				<div class="container">
 					<div class="row gtr-150">
 						<div class="col-6 col-12-medium">
 							<ul class="major-icons">
-								<li><span class="icon solid style1 major fa-code"></span></li>
-								<li><span class="icon solid style2 major fa-bolt"></span></li>
-								<li><span class="icon solid style3 major fa-camera-retro"></span></li>
-								<li><span class="icon solid style4 major fa-cog"></span></li>
-								<li><span class="icon solid style5 major fa-desktop"></span></li>
-								<li><span class="icon solid style6 major fa-calendar"></span></li>
+								<li><span title="Light green HTML tag icon" class="icon solid style1 major fa-code"></span></li>
+								<li><span title="Light green git branch icon" class="icon solid style2 major fa-code-branch"></span></li>
+								<li><span title="Cyan camera icon" class="icon solid style3 major fa-camera-retro"></span></li>
+								<li><span title="Light blue coffee mug icon" class="icon solid style4 major fa-coffee"></span></li>
+								<li><span title="Blue computer monitor icon" class="icon solid style5 major fa-desktop"></span></li>
+								<li><span title="Light purple bug icon" class="icon solid style6 major fa-bug"></span></li>
 							</ul>
 						</div>
 						<div class="col-6 col-12-medium">
 							<header class="major">
-								<h2>{{ tech.title }}</h2>
+								<h1><string>{{ tech.title }}</string></h1>
 							</header>
 							<p>{{ tech.content | safe }}</p>
 						</div>

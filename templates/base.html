@@ -12,9 +12,8 @@
       <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
       <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
-      <link id="light-scheme-icon" rel="shortcut icon" type="image/jpg" href='{{ get_url(path="icons/code-black.ico")}}'>
-      <link id="dark-scheme-icon" rel="shortcut icon" type="image/jpg" href='{{ get_url(path="icons/code-white.ico")}}'>
-
+      <link id="dark-scheme-icon" rel="shortcut icon" type="image/jpg" href='{{ get_url(path="icons/code-black.ico")}}'>
+      <link id="light-scheme-icon" rel="shortcut icon" type="image/jpg" href='{{ get_url(path="icons/code-white.ico")}}'>
 
       <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-QK10RKYRF7"></script>
@@ -28,7 +27,7 @@
 
     </head>
   <body>
-  <nav class="topnav fadeIn" id="topnav">
+  <nav class="topnav fadeIn" id="topnav" role="navigation">
   </nav>
   <main>
     {% block content %}
@@ -45,9 +44,7 @@
     </ul>
   </footer>
 
-
   <script type="text/javascript">
-
     window.onload= function(){
       var navbar = document.getElementById("topnav");
       {% for url in config.extra.navbar_links %}
@@ -71,31 +68,17 @@
         navbar.appendChild(a);
       {% endfor %}
       navbar.innerHTML += '<a href="javascript:void(0);" class="icon"><i class="fa fa-bars" onclick="toggleNav()"></i></a>'
-    }
 
-    function toggleNav() {
-      var navbar = document.getElementById("topnav");
-      if (navbar.className === "topnav") {
-        navbar.className += " responsive";
-      } else {
-        navbar.className = "topnav";
-      }
-    }
-
-    matcher = window.matchMedia('(prefers-color-scheme: dark)');
-    lightSchemeIcon = document.querySelector('link#light-scheme-icon');
-    darkSchemeIcon = document.querySelector('link#dark-scheme-icon');
-    matcher.addEventListener('change', event => {
-      if (event.matches) {
+      const lightSchemeIcon = document.getElementById('light-scheme-icon');
+      const darkSchemeIcon = document.getElementById('dark-scheme-icon');
+      if(window.matchMedia('(prefers-color-scheme: dark)')){
         lightSchemeIcon.remove();
         document.head.append(darkSchemeIcon);
       } else {
-        document.head.append(lightSchemeIcon);
         darkSchemeIcon.remove();
+        document.head.append(lightSchemeIcon);
       }
-    } );
-
-
+    }
   </script>
   <script type="text/javascript" src='{{ get_url(path="js/jquery.min.js") }}'></script>
   <script type="text/javascript" src='{{ get_url(path="js/jquery.scrolly.min.js") }}'></script>
