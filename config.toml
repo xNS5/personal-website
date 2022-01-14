@@ -21,6 +21,7 @@ header_image = "images/hero_image.jpg"
 stylesheet = "main.css"
 copyright = "Michael Kennedy © 2021"
 resume="MichaelKennedy_Resume.pdf"
+validation_server="https://fastapi-recaptcha.herokuapp.com/v1/"
 
 navbar_links = [
     { url= "", title="Home", target=""},
