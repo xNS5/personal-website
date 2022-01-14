@@ -72,11 +72,12 @@
       const lightSchemeIcon = document.getElementById('light-scheme-icon');
       const darkSchemeIcon = document.getElementById('dark-scheme-icon');
       if(window.matchMedia('(prefers-color-scheme: dark)')){
-        lightSchemeIcon.remove();
-        document.head.append(darkSchemeIcon);
-      } else {
         darkSchemeIcon.remove();
         document.head.append(lightSchemeIcon);
+             } else {
+       lightSchemeIcon.remove();
+        document.head.append(darkSchemeIcon);
+
       }
     }
   </script>
