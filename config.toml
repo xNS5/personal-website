@@ -19,9 +19,10 @@ description = "A personal website for a new graduate software developer"
 profile_picture = "images/profile_picture.png"
 header_image = "images/hero_image.jpg"
 stylesheet = "main.css"
-copyright = "Michael Kennedy © 2022"
-resume = "MichaelKennedy_Resume.pdf"
-favicon = "moon.ico"
+favicon = "code-black.ico"
+copyright = "Michael Kennedy © 2021"
+resume="MichaelKennedy_Resume.pdf"
+validation_server="https://fastapi-recaptcha.herokuapp.com/v1/"
 
 navbar_links = [
     { url= "", title="Home", target=""},

@@ -32,11 +32,11 @@
                 <input type="text" id="name" name="Name" placeholder="Firstname Lastname" required>
 
             <label for="email">Email</label>
-                <input type="email" id="email" name="Email" placeholder="example@mail.com" required>
+                <input type="email" id="email" name="Email" placeholder="example@mail.com" required/>
 
             <label for="message">Message</label>
                 <textarea id="message" name="Message" style="height:200px" required></textarea>
-            <input id="btnsubmit" type="button" value="Submit" class="trigger" style="margin: 1em 0;" onclick="return submitForm();" disabled>
+            <input id="btnsubmit" type="submit" value="Submit" class="pageclip-form__submit" disabled/>
         </form>
         <div role="button" id="g-recaptcha" class="g-recaptcha" data-sitekey="6LcYFqsdAAAAAPBADsZ5-FZ4QxRz22HQbiKmIR31" data-expired-callback="onCaptchaExpire" data-callback="onCaptchaData"></div>
     </div>
@@ -61,15 +61,43 @@
     function onCaptchaExpire(){
         document.getElementById("btnsubmit").disabled = true;
     }
-    function onCaptchaData(){
-        document.getElementById("btnsubmit").disabled = false;
+
+    async function onCaptchaData(){
+        try{
+            await fetch('{{ config.extra.validation_server | safe}}', {
+                method: 'POST',
+                cache: 'no-cache',
+                credentials: 'include',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                redirect: 'follow',
+                referrerPolicy: 'no-referrer',
+                body: JSON.stringify({public_key: document.getElementById('g-recaptcha').getAttribute('data-sitekey'), response: document.getElementById('g-recaptcha-response').value})
+            }).then(response => {
+                if(response.status === 200){
+                    document.getElementById("btnsubmit").disabled = false;
+                } else {
+                    alert("An error occurred while validating the reCAPTCHA data. Please refresh and try agian.")
+                }
+            })
+        } catch(err){
+            console.log(err);
+        }
     }
-    function submitForm(){
-        document.getElementById("contact-form").submit();
-    }
-    document.getElementById("btnsubmit").onclick = function (){
-        setTimeout("submitForm()", 5000);
-    }
+    // function submitForm(){
+    //     document.getElementById("contact-form").submit();
+    // }
+    // document.getElementById("btnsubmit").onclick = function (){
+    //     // var x = document.forms;
+    //     // for(var i = 0; i < x.length; i++){
+    //     //     if(x[i].value !== ""){
+    //     //         return;
+    //     //     }
+    //     // }
+    //     setTimeout("submitForm()", 3000);
+    // }
+
     window.onload = function(){
         document.getElementById("contact-form").reset();
         document.getElementById("btnsubmit").disabled = true;
