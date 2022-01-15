@@ -45,41 +45,43 @@
   </footer>
 
   <script type="text/javascript">
-    window.onload= function(){
+    window.onload= function() {
       var navbar = document.getElementById("topnav");
-      {% for url in config.extra.navbar_links %}
-        var a = document.createElement('a');
-        a.innerText = "{{ url.title | safe}}";
-        if( !("{{url.url | safe }}".includes("http") || "{{url.url | safe }}".includes("https"))){
-         if("{{ url.title | safe }}" === "Home"){
-           a.href = "{{ config.base_url | safe }}";
-         } else {
-           a.href = "{{ config.base_url | safe }}{{ url.url | safe }}/";
-         }
-          if("{{ section.permalink | safe }}" === a.href){
-            a.setAttribute("class", "active");
-          }
+      {%for url in config.extra.navbar_links %}
+      var a = document.createElement('a');
+      a.innerText = "{{ url.title | safe}}";
+      if (!("{{url.url | safe }}".includes("http") || "{{url.url | safe }}".includes("https"))) {
+        if ("{{ url.title | safe }}" === "Home") {
+          a.href = "{{ config.base_url | safe }}";
         } else {
-          a.href = "{{ url.url | safe }}";
+          a.href = "{{ config.base_url | safe }}{{ url.url | safe }}/";
         }
-        if("{{ url.target | safe }}".length > 0){
-          a.target = "{{ url.target | safe}}";
+        if ("{{ section.permalink | safe }}" === a.href) {
+          a.setAttribute("class", "active");
         }
-        navbar.appendChild(a);
+      } else {
+        a.href = "{{ url.url | safe }}";
+      }
+      if ("{{ url.target | safe }}".length > 0) {
+        a.target = "{{ url.target | safe}}";
+      }
+      navbar.appendChild(a);
       {% endfor %}
       navbar.innerHTML += '<a href="javascript:void(0);" class="icon"><i class="fa fa-bars" onclick="toggleNav()"></i></a>'
+    }
 
       const lightSchemeIcon = document.getElementById('light-scheme-icon');
       const darkSchemeIcon = document.getElementById('dark-scheme-icon');
-      if(window.matchMedia('(prefers-color-scheme: dark)')){
-        darkSchemeIcon.remove();
-        document.head.append(lightSchemeIcon);
-             } else {
-       lightSchemeIcon.remove();
-        document.head.append(darkSchemeIcon);
-
+      window.matchMedia('(prefers-color-scheme: dark)').onchange = function (e) {
+        console.log(e);
+        if(e.matches){
+          darkSchemeIcon.remove();
+          document.head.append(lightSchemeIcon);
+        } else {
+          lightSchemeIcon.remove();
+          document.head.append(darkSchemeIcon);
+        }
       }
-    }
   </script>
   <script type="text/javascript" src='{{ get_url(path="js/jquery.min.js") }}'></script>
   <script type="text/javascript" src='{{ get_url(path="js/jquery.scrolly.min.js") }}'></script>

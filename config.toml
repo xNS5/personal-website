@@ -22,7 +22,7 @@ stylesheet = "main.css"
 favicon = "code-black.ico"
 copyright = "Michael Kennedy © 2021"
 resume="MichaelKennedy_Resume.pdf"
-validation_server="https://fastapi-recaptcha.herokuapp.com/v1/"
+validation_server="https://recaptcha-validator.azurewebsites.net/v1/"
 
 navbar_links = [
     { url= "", title="Home", target=""},
