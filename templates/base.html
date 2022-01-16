@@ -72,15 +72,12 @@
 
       const lightSchemeIcon = document.getElementById('light-scheme-icon');
       const darkSchemeIcon = document.getElementById('dark-scheme-icon');
-      window.matchMedia('(prefers-color-scheme: dark)').onchange = function (e) {
-        console.log(e);
-        if(e.matches){
-          darkSchemeIcon.remove();
-          document.head.append(lightSchemeIcon);
-        } else {
-          lightSchemeIcon.remove();
-          document.head.append(darkSchemeIcon);
-        }
+      if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+        darkSchemeIcon.remove();
+        document.head.append(lightSchemeIcon);
+      } else {
+        lightSchemeIcon.remove();
+        document.head.append(darkSchemeIcon);
       }
   </script>
   <script type="text/javascript" src='{{ get_url(path="js/jquery.min.js") }}'></script>
