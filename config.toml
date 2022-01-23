@@ -15,7 +15,7 @@ highlight_code = true
 [extra]
 # Put all your custom variables here
 author = "Michael Kennedy"
-description = "A personal website for a new graduate software developer"
+description = "It's all Segfaults from Here"
 profile_picture = "images/profile_picture.png"
 header_image = "images/hero_image.jpg"
 stylesheet = "main.css"
