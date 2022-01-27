@@ -13,13 +13,13 @@
     }
 </style>
 
-<div class="modal">
+<!--<div class="modal">
     <div class="modal-content">
         <span class="close-button">&times;</span>
         <h1>Thank you for reaching out!</h1>
         <p>Thank you for reaching out to me! I'll get in touch with you as soon as I can.</p>
     </div>
-</div>
+</div>-->
 
 
 <section class="main style1 ">
@@ -43,18 +43,18 @@
 
 </section>
 <script type="text/javascript">
-    const modal = document.querySelector(".modal");
+   /* const modal = document.querySelector(".modal");
     const trigger = document.querySelector(".trigger");
     const closeButton = document.querySelector(".close-button");
-    // function toggleModal() {
-    //     modal.classList.toggle("show-modal");
-    // }
-    // function windowOnClick(event) {
-    //     if (event.target === modal) {
-    //         toggleModal();
-    //     }
-    // }
-    /*trigger.addEventListener("click", toggleModal);
+    function toggleModal() {
+        modal.classList.toggle("show-modal");
+    }
+    function windowOnClick(event) {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    }
+    trigger.addEventListener("click", toggleModal);
     closeButton.addEventListener("click", toggleModal);
     window.addEventListener("click", windowOnClick);*/
 
@@ -78,25 +78,14 @@
                 if(response.status === 200){
                     document.getElementById("btnsubmit").disabled = false;
                 } else {
-                    alert("An error occurred while validating the reCAPTCHA data. Please refresh and try again.")
+                    alert("An error occurred while validating the reCAPTCHA data. Please refresh and try again.");
+                    location.reload();
                 }
             })
         } catch(err){
             console.log(err);
         }
     }
-    // function submitForm(){
-    //     document.getElementById("contact-form").submit();
-    // }
-    // document.getElementById("btnsubmit").onclick = function (){
-    //     // var x = document.forms;
-    //     // for(var i = 0; i < x.length; i++){
-    //     //     if(x[i].value !== ""){
-    //     //         return;
-    //     //     }
-    //     // }
-    //     setTimeout("submitForm()", 3000);
-    // }
 
     window.onload = function(){
         document.getElementById("contact-form").reset();

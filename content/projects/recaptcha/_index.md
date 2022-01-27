@@ -4,7 +4,7 @@ description = "A small FastAPI server to validate the responses from a reCAPTCHA
 template = "project.html"
 draft = false
 [extra]
-tech = "FastAPI, Python, Javascript, Heroku/Azure"
+tech = "FastAPI, Python, Javascript, Microsoft Azure"
 repo = ""
 logo = "captcha.png"
 alt = "A captcha icon of 3 arrows forming a circle."
@@ -25,7 +25,7 @@ but I don't need anything super big that has a lot of requirements, configuratio
 ## Technologies Used
 
 Simply put, I used a FastAPI backend server, a javascript function located in my [personal website](https://www.michaelkennedy.dev/contact/), and Heroku to host it. I initially opted to use Heroku as I was already had an account, 
-but I thought that I'd use the Azure credits I had accrued 
+but I thought that I'd use the Azure student credits I had as I was a student. Migrating my code from Heroku to Azure was painless, and I learned a bit about how to navigate the Azure dashboard. 
 
 ## Thoughts
 
