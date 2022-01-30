@@ -62,30 +62,40 @@
         document.getElementById("btnsubmit").disabled = true;
     }
 
-    async function onCaptchaData(){
-        try{
-            await fetch('{{ config.extra.validation_server | safe}}', {
-                method: 'POST',
-                cache: 'no-cache',
-                credentials: 'include',
-                headers:{
-                    'Content-Type':'application/json'
-                },
-                redirect: 'follow',
-                referrerPolicy: 'no-referrer',
-                body: JSON.stringify({public_key: document.getElementById('g-recaptcha').getAttribute('data-sitekey'), response: document.getElementById('g-recaptcha-response').value})
-            }).then(response => {
-                if(response.status === 200){
-                    document.getElementById("btnsubmit").disabled = false;
-                } else {
-                    alert("An error occurred while validating the reCAPTCHA data. Please refresh and try again.");
-                    location.reload();
-                }
-            })
-        } catch(err){
-            console.log(err);
-        }
-    }
+   async function onCaptchaData(n = 3){
+       try{
+           return new Promise(function(resolve, reject){
+               fetch('{{ config.extra.validation_server | safe}}', {
+                   method: 'POST',
+                   cache: 'no-cache',
+                   credentials: 'include',
+                   headers:{
+                       'Content-Type':'application/json'
+                   },
+                   redirect: 'follow',
+                   referrerPolicy: 'no-referrer',
+                   body: JSON.stringify({public_key: document.getElementById('g-recaptcha').getAttribute('data-sitekey'), response: document.getElementById('g-recaptcha-response').value})
+               }).then(response => {
+                   if(response.status === 200){
+                       document.getElementById("btnsubmit").disabled = false;
+                       resolve(response);
+                   } else {
+                       alert("An error occurred while validating the reCAPTCHA data. Please refresh and try again.");
+                       location.reload();
+                   }
+               }).catch(function(error) {
+                   if(n === 0) return reject(error);
+                   setTimeout(() => {}, 1000);
+                   onCaptchaData(n-1)
+                       .then(resolve)
+                       .catch(reject)
+               })
+           })
+       } catch(err){
+           console.log(err);
+       }
+
+   }
 
     window.onload = function(){
         document.getElementById("contact-form").reset();
