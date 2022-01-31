@@ -11,4 +11,4 @@ I've found that I enjoy creating mobile applications, and working with stakehold
 With that said, I'm open to any opportunities that will help me further my professional career. In my free time, I enjoy exploring Washington, playing classical guitar, photography, and making things with my hands. 
 Photography allows me to shut off that part of my brain that wants to be analytical and allows me to enjoy the natural beauty of my surroundings. I've been playing guitar for most of my life, and I enjoy the elegance of classical music.
 
-If you wish to get in touch, please don't hesitate to reach out to me at [michael@michaelkennedy.dev](mailto:michael@michaelkennedy.dev?subject=Website%20Contact%20Inquiry).
+[//]: # (If you wish to get in touch, please don't hesitate to reach out to me at [michael@michaelkennedy.dev]&#40;mailto:michael@michaelkennedy.dev?subject=Website%20Contact%20Inquiry&#41;.)

@@ -31,7 +31,7 @@ navbar_links = [
     { url="resume", title="Resume", target=""},
     { url="https://github.com/xNS5", title="Github", target="_blank"},
     { url="https://www.linkedin.com/in/mw-kennedy/", title="Linkedin", target="_blank"},
-#     { url="contact", title="Contact", target=""},
+    { url="contact", title="Contact", target=""},
 ]
 
 footer_links = [
