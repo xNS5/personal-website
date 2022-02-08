@@ -21,8 +21,8 @@ header_image = "images/hero_image.jpg"
 stylesheet = "main.css"
 favicon = "code-black.ico"
 copyright = "Michael Kennedy © 2022"
-resume="MichaelKennedy_Resume.pdf"
 validation_server="https://recaptcha-validator.azurewebsites.net/v1/"
+sitekey = "6LfKKmQeAAAAAD8S4Gd-id0BZTOG0TotJclcy_94"
 
 navbar_links = [
     { url= "", title="Home", target=""},
