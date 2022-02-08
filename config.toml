@@ -22,7 +22,8 @@ stylesheet = "main.css"
 favicon = "code-black.ico"
 copyright = "Michael Kennedy © 2022"
 validation_server="https://recaptcha-validator.azurewebsites.net/v1/"
-sitekey = "6LfKKmQeAAAAAD8S4Gd-id0BZTOG0TotJclcy_94"
+recaptcha_sitekey = "6LfKKmQeAAAAAD8S4Gd-id0BZTOG0TotJclcy_94"
+ipinfo_sitekey = "935f21c830924d"
 
 navbar_links = [
     { url= "", title="Home", target=""},

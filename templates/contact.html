@@ -33,19 +33,19 @@
             <input type="checkbox" id="honeypot"/> Click here to accept the terms of usage of this contact form.
         </label>
         <button class="g-recaptcha"
-                data-sitekey='{{ config.extra.sitekey | safe }}'
+                data-sitekey='{{ config.extra.recaptcha_sitekey}}'
                 data-callback='onDataCallback'>Submit</button>
     </div>
 
 </section>
-<script src="https://www.google.com/recaptcha/api.js?render={{config.extra.sitekey}}"></script>
+<script src="https://www.google.com/recaptcha/api.js?render={{ config.extra.recaptcha_sitekey }}"></script>
 <script type="text/javascript">
 
     async function onDataCallback() {
        const hp = document.querySelector('#honeypot');
        if(!hp.checked){
            grecaptcha.ready(function() {
-               grecaptcha.execute('{{ config.extra.sitekey}}', {action: 'submit'}).then(async function(token) {
+               grecaptcha.execute('{{ config.extra.recaptcha_sitekey }}', {action: 'submit'}).then(async function(token) {
                    try{
                        await fetch('{{ config.extra.validation_server | safe}}', {
                            method: 'POST',
@@ -57,16 +57,14 @@
                            },
                            redirect: 'follow',
                            referrerPolicy: 'no-referrer',
-                           body: JSON.stringify({ public_key: '{{ config.extra.sitekey }}', ip: String(await getIP()), response: token })
+                           body: JSON.stringify({ public_key: '{{ config.extra.recaptcha_sitekey }}', ip: await getIP(), response: token })
                        }).then(async (response) => {
                            response = await response.json()
-                           if(response.status === 200 && response['score'] > 0.7){
+                           if(response['success'] === "True" && response['score'] > 0.7){
                                document.forms.item(0).submit();
-                           }else if(response.status === 429){
+                           }/*else if(response.status === 429){
                                alert("You have attempted too many requests. Please try again tomorrow or email me directly. Thank you!");
-                           } else if(response['score'] < 0.5){
-
-                           } else {
+                           } */else {
                                alert("An error occurred while validating the reCAPTCHA data. Please refresh and try again.");
                                location.reload();
                            }
@@ -89,23 +87,26 @@
 
     async function getIP(){
         try {
-            return await fetch('https://ipinfo.io/json?token=935f21c830924d', {
+            return await fetch('https://ipinfo.io/json?token={{ config.extra.ipinfo_sitekey }}', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 cache: 'default',
             }).then(async (response) => {
-                return await Promise.resolve(response.json());
+                response = await Promise.resolve(response.json());
+                return response['ip'];
             });
-            // return Promise.resolve(addr_obj['ip']);
         } catch (error) {
             console.error(error);
         }
     }
 
-    window.onbeforeunload = function(){
+    Pageclip.form(document.querySelector('.pageclip-form'), {
+        _successTemplate: '<span>Thank you for taking the time to get in contact!</span>'
+    })
 
+    window.onbeforeunload = function(){
         document.forms.item(0).reset()
     }
 </script>
