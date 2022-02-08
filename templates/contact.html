@@ -47,17 +47,17 @@
            grecaptcha.ready(function() {
                grecaptcha.execute('{{ config.extra.sitekey}}', {action: 'submit'}).then(async function(token) {
                    try{
-
                        await fetch('{{ config.extra.validation_server | safe}}', {
                            method: 'POST',
                            cache: 'no-cache',
                            credentials: 'include',
+                           mode:'cors',
                            headers:{
                                'Content-Type':'application/json'
                            },
                            redirect: 'follow',
                            referrerPolicy: 'no-referrer',
-                           body: JSON.stringify({ public_key: '{{ config.extra.sitekey }}', ip: ``, response: token })
+                           body: JSON.stringify({ public_key: '{{ config.extra.sitekey }}', ip: String(await getIP()), response: token })
                        }).then(async (response) => {
                            response = await response.json()
                            if(response.status === 200 && response['score'] > 0.7){
