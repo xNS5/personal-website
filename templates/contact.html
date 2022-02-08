@@ -11,6 +11,11 @@
         background-color: #f2f2f2;
         padding: 20px;
     }
+
+    .formlabel::after {
+        content:" *";
+        color: red;
+    }
 </style>
 
 
@@ -19,22 +24,22 @@
         {{ section.content | safe}}
     </header>
     <div class="container contact_container">
-        <form id="contact-form" class="pageclip-form" onsubmit="return false;" action="https://send.pageclip.co/xsgAwzGUPZLGLFaGYgXtzqLpxkxflZYh/contact-form"   method="POST">
-            <label for="name">Full Name</label>
-                <input type="text" id="name" name="Name" placeholder="Firstname Lastname" required>
+        <form id="contact-form" class="pageclip-form" onSubmit='onDataCallback(); return false;' action="https://send.pageclip.co/xsgAwzGUPZLGLFaGYgXtzqLpxkxflZYh/contact-form"   method="POST">
+            <label class="formlabel" for="name">Full Name</label>
+                <input required="required" class="required"type="text" id="name" name="Name" placeholder="Firstname Lastname" />
 
-            <label for="email">Email</label>
-                <input type="email" id="email" name="Email" placeholder="example@mail.com" required>
+            <label class="formlabel" for="email">Email</label>
+                <input required="required" class="required" type="email" id="email" name="Email" placeholder="example@mail.com" />
 
-            <label for="message">Message</label>
-                <textarea id="message" name="Message" style="height:200px" required></textarea>
+            <label class="formlabel" for="message">Message</label>
+                <textarea required="required" class="required" id="message" name="Message" style="height:200px"></textarea>
+
+            <input id="btnsubmit" type="submit" value="Submit" class="pageclip-form__submit g-recaptcha"
+                   data-sitekey="{{ config.extra.recaptcha_sitekey}}"/>
         </form>
         <label for="honeypot" style="display: none">
             <input type="checkbox" id="honeypot"/> Click here to accept the terms of usage of this contact form.
         </label>
-        <button class="g-recaptcha"
-                data-sitekey='{{ config.extra.recaptcha_sitekey}}'
-                data-callback='onDataCallback'>Submit</button>
     </div>
 
 </section>
@@ -71,6 +76,7 @@
                        })
                    } catch(err){
                        console.log(err);
+                       return false;
                    }
                });
            });
@@ -101,10 +107,6 @@
             console.error(error);
         }
     }
-
-    Pageclip.form(document.querySelector('.pageclip-form'), {
-        _successTemplate: '<span>Thank you for taking the time to get in contact!</span>'
-    })
 
     window.onbeforeunload = function(){
         document.forms.item(0).reset()
