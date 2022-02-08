@@ -24,7 +24,7 @@
         {{ section.content | safe}}
     </header>
     <div class="container contact_container">
-        <form id="contact-form" class="pageclip-form" onSubmit='onDataCallback(); return false;' action="https://send.pageclip.co/xsgAwzGUPZLGLFaGYgXtzqLpxkxflZYh/contact-form"   method="POST">
+        <form id="contact-form" class="pageclip-form" onsubmit='return false;' action="https://send.pageclip.co/xsgAwzGUPZLGLFaGYgXtzqLpxkxflZYh/contact-form"  method="POST">
             <label class="formlabel" for="name">Full Name</label>
                 <input required="required" class="required"type="text" id="name" name="Name" placeholder="Firstname Lastname" />
 
@@ -34,8 +34,10 @@
             <label class="formlabel" for="message">Message</label>
                 <textarea required="required" class="required" id="message" name="Message" style="height:200px"></textarea>
 
-            <input id="btnsubmit" type="submit" value="Submit" class="pageclip-form__submit g-recaptcha"
-                   data-sitekey="{{ config.extra.recaptcha_sitekey}}"/>
+            <input type="submit" value="Submit" class="g-recaptcha pageclip-form__submit "
+                   data-sitekey="{{ config.extra.recaptcha_sitekey}}"
+                    data-callback='formCallback'
+                    data-action='submit'/>
         </form>
         <label for="honeypot" style="display: none">
             <input type="checkbox" id="honeypot"/> Click here to accept the terms of usage of this contact form.
@@ -46,12 +48,25 @@
 <script src="https://www.google.com/recaptcha/api.js?render={{ config.extra.recaptcha_sitekey }}"></script>
 <script type="text/javascript">
 
-    async function onDataCallback() {
+    async function formCallback() {
        const hp = document.querySelector('#honeypot');
        if(!hp.checked){
+           var inputs = document.getElementsByClassName('required');
+           var str = ""
+           for(var i = 0; i < inputs.length; i++){
+               if(inputs[i].value.length === 0){
+                   str += (inputs[i].name.charAt(0).toUpperCase() + inputs[i].name.slice(1)+'\n');
+               }
+           }
+           if(str.length > 0){
+               alert(`Please fill out the following fields:\n\n${str}`)
+               return;
+           }
+
            grecaptcha.ready(function() {
                grecaptcha.execute('{{ config.extra.recaptcha_sitekey }}', {action: 'submit'}).then(async function(token) {
                    try{
+                       const ip = await getIP();
                        await fetch('{{ config.extra.validation_server | safe}}', {
                            method: 'POST',
                            cache: 'no-cache',
@@ -62,21 +77,21 @@
                            },
                            redirect: 'follow',
                            referrerPolicy: 'no-referrer',
-                           body: JSON.stringify({ public_key: '{{ config.extra.recaptcha_sitekey }}', ip: await getIP(), response: token })
+                           body: JSON.stringify({ public_key: '{{ config.extra.recaptcha_sitekey }}', ip: ip, response: token })
                        }).then(async (response) => {
                            response = await response.json()
-                           if(response['success'] === "True" && response['score'] > 0.7){
-                               document.forms.item(0).submit();
-                           }/*else if(response.status === 429){
-                               alert("You have attempted too many requests. Please try again tomorrow or email me directly. Thank you!");
-                           } */else {
+                           if(response['score'] < 0.7){
                                alert("An error occurred while validating the reCAPTCHA data. Please refresh and try again.");
                                location.reload();
+                           }/*else if(response.status === 429){
+                               alert("You have attempted too many requests. Please try again tomorrow or email me directly. Thank you!");
+                           } */ else {
+                               document.getElementById("g-recaptcha-response").remove();
+                               document.forms.item(0).submit();
                            }
                        })
                    } catch(err){
                        console.log(err);
-                       return false;
                    }
                });
            });
@@ -84,7 +99,6 @@
            console.log("Bad bot.")
            window.location.href="https://google.com"
        }
-       return false;
     }
 
     // document.addEventListener("DOMContentLoaded", async function(){
