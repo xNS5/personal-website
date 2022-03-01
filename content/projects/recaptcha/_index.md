@@ -37,9 +37,6 @@ It's a service that essentially acts is as if I created a [CRON job](https://ost
 Turns out I could! I created a [Function Application](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) which runs a python script on an interval. I set the interval to run every 15 minutes, however I think I may change it to 18 minutes to minimize the number of requests made.
 While there were a few road bumps like not having the `.ssl-key.log` file added as an environment variable to my `.zshrc` file for some bizarre reason, the fix was relatively quick and easy to implement. I'll be monitoring both applications to see how this fix affects the free tier's daily quota. 
 
-I initially thought that running reCAPTCHA v2 would be fine, but I noticed a few spam-bots/messages slipping through the cracks. I have a few ideas on how to address it, but after building it out I realized that maybe I'm overcomplicating it. I decided to upgrade to reCAPTCHA v3, and added a few more 
-features to my contact form to potentially catch any bots that slip through the cracks. I have some server-side code whipped up that theoretically would help cut down on spam, but I want to see how the new features work out before going to Defcon 1. 
-
 ## Thoughts
 
 ### FastAPI
@@ -60,11 +57,3 @@ The documentation on creating Azure applications is unnecessarily spread out and
 Had I stayed with Heroku I probably would have the same issue where free-tier application goes to sleep after a set amount of time. Odds are I would have come up with a CRON-like solution to keep it running. That said, Heroku's dashboard is significantly friendlier compared to Azure. Many
 of the settings are pretty self-explanatory whereas compared to Azure -- for example, an App Service has a few tabs which allude to the same function such as "Activity Log", "Logs", "App Service logs", "Log Stream". End of the day I really just switched to Azure because odds are I'd be working
 with it in a professional environment. Heroku, Azure, Digital Ocean, they'll all get the job done. 
-
-
-## Web Development
-
-While this is a website, it isn't necessarily as robust as something developed with an actual backend. I've had to build out most of the features myself whereas with Node for example I could have just imported a library that would have done the same thing. So far this has been an excellent learning opportunity,
-but it also reinforces my dislike for javascript. I use Webstorm for anything website/javascript related, and the sheer number of functions, attributes, you name it that any given object *can* have is insane. At times, if you think that an object `foo` has an attribute `bar`, Webstorm won't register that there's an issue
-until the function is running in either the terminal or a website. I struggled for a few hours to work out the kinks in validating reCAPTCHA only to find out that the majority of my issues were due to my web browser caching old data. It's just like spending hours troubleshooting a computer
-only to find out that the ethernet cable was disconnected. Ugh. 
