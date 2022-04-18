@@ -26,7 +26,7 @@
     <div class="container contact_container">
         <form id="contact-form" class="pageclip-form" onsubmit='return false;' action="https://send.pageclip.co/xsgAwzGUPZLGLFaGYgXtzqLpxkxflZYh/contact-form"  method="POST">
             <label class="formlabel" for="name">Full Name</label>
-                <input required="required" class="required"type="text" id="name" name="Name" placeholder="Firstname Lastname" />
+                <input required="required" class="required" type="text" id="name" name="Name" placeholder="Firstname Lastname" />
 
             <label class="formlabel" for="email">Email</label>
                 <input required="required" class="required" type="email" id="email" name="Email" placeholder="example@mail.com" />
@@ -39,10 +39,11 @@
                     data-callback='formCallback'
                     data-action='submit'/>
         </form>
-        <label for="honeypot" style="display: none">
-            <input type="checkbox" id="honeypot"/> Click here to accept the terms of usage of this contact form.
+        <label style="display: none !important">
+            <input type="checkbox" id="honeypot" value="1" tabindex="-1" autocomplete="off"/> Click here to accept the terms of usage of this contact form.
         </label>
     </div>
+
 
 </section>
 <script src="https://www.google.com/recaptcha/api.js?render={{ config.extra.recaptcha_sitekey }}"></script>
@@ -60,50 +61,47 @@
            }
            if(str.length > 0){
                alert(`Please fill out the following fields:\n\n${str}`)
-               return;
+           } else {
+               grecaptcha.ready(function() {
+                   grecaptcha.execute('{{ config.extra.recaptcha_sitekey }}', {action: 'submit'}).then(async function(token) {
+                       try{
+                           const ip = await getIP();
+                           await fetch('{{ config.extra.validation_server | safe}}', {
+                               method: 'POST',
+                               cache: 'no-cache',
+                               credentials: 'include',
+                               mode:'cors',
+                               headers:{
+                                   'Content-Type':'application/json',
+                                   'Access-Control-Allow-Origin' : "http://localhost:1111"
+                               },
+                               redirect: 'follow',
+                               referrerPolicy: 'no-referrer',
+                               body: JSON.stringify({ public_key: '{{ config.extra.recaptcha_sitekey }}', ip: ip, response: token })
+                           }).then(async (response) => {
+                               response = await response.json()
+                               if(response['score'] < 0.7){
+                                   alert("An error occurred while validating the reCAPTCHA data. Please refresh and try again.");
+                                   location.reload();
+                               } else {
+                                   document.getElementById("g-recaptcha-response").remove();
+                                   document.forms.item(0).appendChild(
+                                       document.createElement('<label class="formlabel" for="ip">IP Address</label><input type="text" id="ip" name="IP" value="' + ip + '" />')
+                                   )
+                                   document.forms.item(0).submit();
+                               }
+                           })
+                       } catch(err){
+                           console.log(err);
+                       }
+                   });
+               })
            }
-
-           grecaptcha.ready(function() {
-               grecaptcha.execute('{{ config.extra.recaptcha_sitekey }}', {action: 'submit'}).then(async function(token) {
-                   try{
-                       const ip = await getIP();
-                       await fetch('{{ config.extra.validation_server | safe}}', {
-                           method: 'POST',
-                           cache: 'no-cache',
-                           credentials: 'include',
-                           mode:'cors',
-                           headers:{
-                               'Content-Type':'application/json'
-                           },
-                           redirect: 'follow',
-                           referrerPolicy: 'no-referrer',
-                           body: JSON.stringify({ public_key: '{{ config.extra.recaptcha_sitekey }}', ip: ip, response: token })
-                       }).then(async (response) => {
-                           response = await response.json()
-                           if(response['score'] < 0.7){
-                               alert("An error occurred while validating the reCAPTCHA data. Please refresh and try again.");
-                               location.reload();
-                           }/*else if(response.status === 429){
-                               alert("You have attempted too many requests. Please try again tomorrow or email me directly. Thank you!");
-                           } */ else {
-                               document.getElementById("g-recaptcha-response").remove();
-                               document.forms.item(0).submit();
-                           }
-                       })
-                   } catch(err){
-                       console.log(err);
-                   }
-               });
-           });
        } else {
            console.log("Bad bot.")
            window.location.href="https://google.com"
        }
     }
-
-    // document.addEventListener("DOMContentLoaded", async function(){
-    //     console.log(await getIP());
-    // })
 
     async function getIP(){
         try {
