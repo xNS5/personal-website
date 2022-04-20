@@ -22,6 +22,10 @@
 <section class="main style1 ">
     <header class="major" style="text-align: center">
         {{ section.content | safe}}
+        <p>Please be aware that I require your IP address to ensure that you're not a bot.<br>
+           If this isn't acceptable, please feel free to shoot me an email at <a href="mailto:michael@michaelkennedy.dev">michael@michaelkennedy.dev</a> to get in touch.
+        </p>
+
     </header>
     <div class="container contact_container">
         <form id="contact-form" class="pageclip-form" onsubmit='return false;' action="https://send.pageclip.co/xsgAwzGUPZLGLFaGYgXtzqLpxkxflZYh/contact-form"  method="POST">
@@ -35,7 +39,7 @@
                 <textarea required="required" class="required" id="message" name="Message" style="height:200px"></textarea>
 
             <input type="submit" value="Submit" class="g-recaptcha pageclip-form__submit "
-                   data-sitekey="{{ config.extra.recaptcha_sitekey}}"
+                    data-sitekey="{{ config.extra.recaptcha_sitekey}}"
                     data-callback='formCallback'
                     data-action='submit'/>
         </form>
@@ -50,7 +54,7 @@
 <script type="text/javascript">
 
     async function formCallback() {
-       const hp = document.querySelector('#honeypot');
+       const hp = document.getElementById("honeypot");
        if(!hp.checked){
            var inputs = document.getElementsByClassName('required');
            var str = ""
@@ -65,33 +69,38 @@
                grecaptcha.ready(function() {
                    grecaptcha.execute('{{ config.extra.recaptcha_sitekey }}', {action: 'submit'}).then(async function(token) {
                        try{
-                           const ip = await getIP();
-                           await fetch('{{ config.extra.validation_server | safe}}', {
-                               method: 'POST',
-                               cache: 'no-cache',
-                               credentials: 'include',
-                               mode:'cors',
-                               headers:{
-                                   'Content-Type':'application/json',
-                                   'Access-Control-Allow-Origin' : "http://localhost:1111"
-                               },
-                               redirect: 'follow',
-                               referrerPolicy: 'no-referrer',
-                               body: JSON.stringify({ public_key: '{{ config.extra.recaptcha_sitekey }}', ip: ip, response: token })
-                           }).then(async (response) => {
-                               response = await response.json()
-                               if(response['score'] < 0.7){
-                                   alert("An error occurred while validating the reCAPTCHA data. Please refresh and try again.");
-                                   location.reload();
-                               } else {
-                                   document.getElementById("g-recaptcha-response").remove();
-                                   document.forms.item(0).appendChild(
-                                       document.createElement('<label class="formlabel" for="ip">IP Address</label><input type="text" id="ip" name="IP" value="' + ip + '" />')
-                                   )
-                                   document.forms.item(0).submit();
-                               }
-                           })
+                           await getIP().then(async (ip) => {
+                               if(ip) {
+                                   await fetch('{{ config.extra.validation_server | safe}}', {
+                                       method: 'POST',
+                                       cache: 'no-cache',
+                                       credentials: 'include',
+                                       mode: 'cors',
+                                       headers: {
+                                           'Content-Type': 'application/json',
+                                           'Access-Control-Allow-Origin': "http://localhost:1111"
+                                       },
+                                       redirect: 'follow',
+                                       referrerPolicy: 'no-referrer',
+                                       body: JSON.stringify({
+                                           public_key: '{{ config.extra.recaptcha_sitekey }}',
+                                           ip: ip,
+                                           response: token
+                                       })
+                                   }).then(async (response) => {
+                                       response = await response.json()
+                                       if (response['score'] < 0.7) {
+                                           alert("An error occurred while validating the reCAPTCHA data. Please refresh and try again.");
+                                           location.reload();
+                                       } else {
+                                           console.log(document.getElementById("g-recaptcha-response").innerText)
+                                           document.getElementById("g-recaptcha-response").remove();
+                                           document.forms.item(0).submit();
+                                       }
+                                   })
+                               }})
                        } catch(err){
+                           alert("An error occurred while submitting the form. Please try again, or just shoot me an email.")
                            console.log(err);
                        }
                    });
@@ -116,18 +125,10 @@
                 return response['ip'];
             });
         } catch (error) {
+            alert("An error has occurred. Please ensure that your adblocker is disabled and try again.")
             console.error(error);
         }
     }
-
-    const form = document.forms.item(0);
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const response_code =  document.getElementById("g-recaptcha-response");
-        if(response_code !== null){
-
-        }
-    });
 
     window.onbeforeunload = function(){
         document.forms.item(0).reset()
