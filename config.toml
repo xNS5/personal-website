@@ -24,6 +24,7 @@ copyright = "Michael Kennedy © 2022"
 validation_server="https://recaptcha-validator.azurewebsites.net/api/v1/"
 recaptcha_sitekey = "6LfKKmQeAAAAAD8S4Gd-id0BZTOG0TotJclcy_94"
 ipinfo_sitekey = "935f21c830924d"
+mailto = "mailto:michael@michaelkennedy.dev?subject=Website%20Contact%20Inquiry"
 
 navbar_links = [
     { url= "", title="Home", target=""},
@@ -32,7 +33,7 @@ navbar_links = [
     { url="resume", title="Resume", target=""},
     { url="https://github.com/xNS5", title="Github", target="_blank"},
     { url="https://www.linkedin.com/in/mw-kennedy/", title="Linkedin", target="_blank"},
-    { url="contact", title="Contact", target=""},
+    { url="mailto:michael@michaelkennedy.dev?subject=Website%20Contact%20Inquiry ", title="Contact", target=""},
 ]
 
 footer_links = [

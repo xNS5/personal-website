@@ -47,12 +47,14 @@
   <script type="text/javascript">
     window.onload= function() {
       var navbar = document.getElementById("topnav");
-      {%for url in config.extra.navbar_links %}
+      {% for url in config.extra.navbar_links %}
       var a = document.createElement('a');
       a.innerText = "{{ url.title | safe}}";
       if (!("{{url.url | safe }}".includes("http") || "{{url.url | safe }}".includes("https"))) {
         if ("{{ url.title | safe }}" === "Home") {
           a.href = "{{ config.base_url | safe }}";
+        } else if("{{url.title | safe}}" === "Contact") {
+          a.href = "{{ url.url | safe }}"
         } else {
           a.href = "{{ config.base_url | safe }}{{ url.url | safe }}/";
         }
