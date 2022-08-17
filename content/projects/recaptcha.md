@@ -1,8 +1,8 @@
 +++
 title = "reCAPTCHA Validator"
 description = "A small FastAPI server to validate the responses from a reCAPTCHA challenge."
-template = "project.html"
 draft = false
+date = 2022-03-01
 [extra]
 tech = "FastAPI, Python, Javascript, Microsoft Azure"
 repo = ""

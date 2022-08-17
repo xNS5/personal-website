@@ -157,7 +157,7 @@ select, textarea {
 
 	p {
 		margin: 0 0 2em 0;
-		font-size: 1.5rem;
+		font-size: 18pt;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -172,25 +172,24 @@ select, textarea {
 		}
 
 	h1 {
-		font-size: 2.5em;
+		font-size: 34pt;
 		line-height: 1.35em;
 	}
 
 	h2 {
-		font-size: 2.0em;
+		font-size: 28pt;
 		line-height: 1.35em;
 	}
 
 	h3 {
-		font-size: 1.75em;
+		font-size: 24pt;
 		line-height: 1.5em;
-		font-style: italic;
 	}
 
 	h4 {
 		font-size: 1.25em;
 		line-height: 1.5em;
-		text-decoration: underline black 1px;
+		font-style: italic;
 	}
 
 	h5 {
@@ -2456,11 +2455,11 @@ select, textarea {
 		list-style: disc;
 		margin: 0 0 2em 0;
 		padding-left: 1em;
+		font-size: 18pt;
 	}
 
 		ul li {
-
-			padding-left: 0.5em;
+			padding-left: 0.25em;
 		}
 
 		ul.alt {
@@ -2618,6 +2617,7 @@ select, textarea {
 	ul.major-icons {
 		list-style: none;
 		padding-left: 0;
+		font-size: inherit;
 	}
 
 		ul.major-icons li {

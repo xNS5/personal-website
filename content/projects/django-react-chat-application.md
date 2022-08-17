@@ -1,8 +1,8 @@
 +++
 title = "Django/React Chat Application"
 description = "A Full-Stack chat application "
-template = "project.html"
 draft = false
+date = 2022-07-19
 [extra]
 tech = "ReactJS, Django, REST"
 repo = "https://github.com/xNS5/django-react-chat-app"

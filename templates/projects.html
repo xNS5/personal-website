@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "index.html" %}
 {% block title %}
 {{ config.extra.author }} - {{ section.title }}
 {% endblock title %}
@@ -15,10 +15,12 @@
             <h1><strong>My Projects</strong></h1>
         </header>
         <div class="row gtr-150">
-            {% for path in section.subsections %}
-            {% set page = get_section(path=path) %}
+           {% for page in section.pages %}
+            <script>
+                console.log("{{ page.permalink | safe }}")
+            </script>
             <div class="col-4 col-12-large">
-                <span class="image"><a href="{{page.permalink}}"><img src="{{page.permalink}}{{page.extra.logo}}" class="project_logo" alt="{{ page.extra.alt }}"/></a></span>
+                <span class="image"><a href="{{page.permalink}}"><img src="/images/{{page.extra.logo}}" class="project_logo" alt="{{ page.extra.alt }}"/></a></span>
                 <h2><strong>{{ page.title }}</strong> - {{ page.extra.tech }}</h2>
                 <p>{{ page.description }}</p>
                 <ul class="actions special">

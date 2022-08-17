@@ -67,21 +67,20 @@
 						let div_row = document.createElement('div');
 						div_row.setAttribute('class', 'row gtr-150')
 						let i = 0;
-						{% for path in projects.subsections %}
-							{% set page = get_section(path=path) %}
-								if( i < 3 && '{{page.draft}}' === 'false'){
-									let div_col = document.createElement('div');
-									div_col.setAttribute('class', 'col-4 col-12-medium');
-									div_col.innerHTML += '<span class="image">' +
-											'<img src="{{page.permalink}}{{page.extra.logo}}" class="project_logo" alt="{{ page.title }} project logo"/></span>' +
-											'<h2><strong>{{ page.title }}</strong> - {{ page.extra.tech }}</h2> ' +
-											'<p>{{ page.description }}</p>' +
-											'<ul class="actions special">' +
-											'<li><a href= "{{ page.permalink }}" class="button">More</a></li>' +
-											'</ul>';
-									div_row.appendChild(div_col);
-									i++;
-								}
+						{% for page in projects.pages %}
+							if( i < 3 && '{{page.draft}}' === 'false'){
+								let div_col = document.createElement('div');
+								div_col.setAttribute('class', 'col-4 col-12-medium');
+								div_col.innerHTML += '<span class="image">' +
+										'<img src="/images/{{page.extra.logo}}" class="project_logo" alt="{{ page.title }} project logo"/></span>' +
+										'<h2><strong>{{ page.title }}</strong> - {{ page.extra.tech }}</h2> ' +
+										'<p>{{ page.description }}</p>' +
+										'<ul class="actions special">' +
+										'<li><a href= "{{ page.permalink }}" class="button">More</a></li>' +
+										'</ul>';
+								div_row.appendChild(div_col);
+								i++;
+							}
 						{% endfor %}
 						document.getElementById('three').appendChild(div_row);
 					</script>

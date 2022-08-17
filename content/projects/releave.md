@@ -1,8 +1,8 @@
 +++
 title = "ReLeave"
 description = "A cross-platform mobile application designed to aid a person going through Cannabis abuse recovery."
-template = "project.html"
 draft = false
+date = 2022-01-02
 [extra]
 tech = "Flutter (Dart), SQlite"
 repo = "https://github.com/xNS5/ReLeave"
@@ -16,7 +16,7 @@ I came up with this project over the summer of 2020. I had discovered the [/r/Le
 not be many applications out there specifically for cannabis abuse. Most applications I came across were a one-size-fits-all type application that
 attempts to work for anyone, applications for alcoholics, people who are dependent on opioids, but not many applications for cannabis dependency.
 
-Society is chomping at the bit for cannabis legalization in the US. Often times people talk about the wonders that the plant can have on a person's body, how it
+Society is champing at the bit for cannabis legalization in the US. Often times people talk about the wonders that the plant can have on a person's body, how it
 can help people undergoing chemotherapy, treat depression, anxiety, etc. however people don't often talk about cannabis dependency and the effects it can have on a person.
 
 I had fully intended to create this application on my own, but I saw an opportunity to create this in a class called "Technology for Social Good". We were asked
@@ -24,13 +24,14 @@ to come up with a project idea and pitch it to the class. I made my pitch, and a
 Android device, so it had to be friendly with most newer OS versions and not be resource-heavy. As a perk, this language is very friendly toward new users and is well documented.
 
 This application has the following features:  
-- Mood/Craving tracking.
-- Journaling system.
-- Custom goal creation.
-- Tracking features.
-- A badge system that awards the user whenever they reach a milestone (e.g. staying *x* days sober, saving *x* dollars by refraining from consuming cannabis products, etc.)
-- Interacting with a community of people who are also attemtping to maintain sobriety.
-
+<ul>
+ <li>Mood/Craving tracking.</li>
+ <li>Journaling system.</li>
+ <li>Custom goal creation.</li>
+ <li>Tracking features.</li>
+ <li>A badge system that awards the user whenever they reach a milestone (e.g. staying x days sober, saving x dollars by refraining from consuming cannabis products, etc.)</li>
+ <li>Interacting with a community of people who are also attemtping to maintain sobriety.</li> 
+</ul>
 
   <img class="project_screenshot_mobile_right" src="/images/releave_home.jpg" alt="Releave Home Screen with two buttons: one blue button with the words 'Community Check-In', and one green button with the words 'Personal Check-in'. In the top
   right corner are the words 'Days Sober: 366' indicating that the user has been sober for a year and one day."/>
