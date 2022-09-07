@@ -83,17 +83,11 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
-katex.enabled = true
-katex.auto_render = true
-chart.enabled = true
-mermaid.enabled = true
-galleria.enabled = true
-
 navbar_items = [
    {code = "en", nav_items = [
-        { url= "$BASE_URL/", title="Home"},
-        { url="$BASE_URL/projects", title="Projects"},
-        { url="$BASE_URL/resume", title="Resume"},
+        { url= "", title="Home"},
+        { url="projects", title="Projects"},
+        { url="resume", title="Resume"},
         { url="https://github.com/xNS5", title="Github"},
         { url="https://www.linkedin.com/in/mw-kennedy/", title="Linkedin"},
         { url="mailto:michael@michaelkennedy.dev?subject=Website%20Contact%20Inquiry ", title="Contact"},
@@ -101,11 +95,13 @@ navbar_items = [
    ]},
 ]
 
+[extra.analytics]
+google="G-QK10RKYRF7"
+
 [extra.author]
 name = "Michael Kennedy"
 avatar = "images/profile_picture.png"
 header_image = "images/hero_image.jpg"
-stylesheet = "main.css"
 favicon = "code-black.ico"
 copyright = "Michael Kennedy © 2022-2023"
 mailto = "mailto:michael@michaelkennedy.dev?subject=Website%20Contact%20Inquiry"

@@ -1,20 +1,27 @@
 {% extends "base.html" %}
-
 {% block content %}
-<section class="section">
-  <div class="container">
-    <div class="has-text-centered">
-      <h1 class="title is-2">{{ section.title }}</h1>
-      <p class="subtitle is-4">{{ section.description }}</p>
-      {% if config.extra.author.avatar %}
-      <figure class="image is-flex is-justify-content-center is-align-items-center">
-        <img class="is-rounded" src="{{ config.extra.author.avatar }}" style="max-width: 192px" />
-      </figure>
-      {% endif %}
-      {{ macros:: social_links( social_config=config.extra.social) }}
+<!-- Header -->
+  <section id="header" title="The header section, with a terminal prompt icon and text in the foreground, with a picture of the Pike Place Public Market sign in the background">
+    <div class="inner">
+      <span class="icon solid major fa-terminal"></span>
+      <h1 id="intro">Hi, I'm <strong>Michael</strong> -- a graduate<br />
+        of Western Washington University</h1>
     </div>
-    <div class="content">
-      {{ section.content | safe }}
+  </section>
+
+<!-- About -->
+<section id="one" class="main style1">
+  <div class="container">
+    <div class="row gtr-150">
+      <div class="col-6 col-12-medium imp-large">
+        <span class="image fit"><img style="border-radius: 5em;" src="{{ config.extra.author.avatar }}" alt="A picture of me wearing red sunglasses and a hat, smiling at the camera." /></span>
+      </div>
+      <div class="col-6 col-12-medium">
+        <p>{{ section.content | safe }}</p>
+        <ul class="actions special">
+          <li><a href="resume/" target="_blank" class="button wide primary">My Resume</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
