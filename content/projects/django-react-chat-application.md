@@ -1,6 +1,7 @@
 +++
 title = "Django/React Chat Application"
 description = "A Full-Stack chat application "
+template="project.html"
 draft = false
 date = 2022-07-19
 [extra]
@@ -43,7 +44,7 @@ is from the other user, it's assumed that they've read the conversation up until
 If it's marked as read, then the read receipt should be moved to the most recent message. 
 
 
-#### All Aboard the Struggle Bus
+### All Aboard the Struggle Bus
 
 The two major issues I faced with this step was that I hadn't ever messed with [Websockets](https://socket.io/), and that I didn't really understand what it meant to ["deep copy"](https://stackoverflow.com/questions/48710797/how-do-i-deep-clone-an-object-in-react) a conversation.
 I was given the hint to modify the websocket, but it didn't really click what that meant. I was so hooked (so to speak) on the frontend application, that I didn't think to check the backend for an *actual* websocket application. That was the biggest

@@ -1,6 +1,7 @@
 +++
 title = "WWU Accessibility Engine (ACE)"
 description = "A full-stack accessibility automation tool developed for Wandke Consulting in Bellingham, Washington."
+template = "project.html"
 draft = false
 date = 2022-01-03
 [extra]

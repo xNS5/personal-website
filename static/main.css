@@ -70,33 +70,6 @@ select, textarea {
 .project_title{
 	width: fit-content;
 }
-     .project_title h1 strong:hover{
-        color: dodgerblue;
-        text-decoration: underline 1px;
-    }
-
-/* Contact Form CSS */
-#contact-form div{
-	margin: 2em;
-}
-#contact-form .is-center {
-	text-align: center;
-}
-#contact-form .button-success {
-	color: white;
-	border-radius: 4px;
-	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-	background: #5e81ac;
-}
-#contact-form .button-xlarge {
-	font-size: 125%;
-}
-#contact-form button {
-	float: right;
-}
-#contact-form #name, #email {
-	width: 50%;
-}
 
 /* Basic */
 
@@ -292,6 +265,10 @@ select, textarea {
 	.project_demo_desktop {
 		width: 85%;
 		margin: 1em 1em 1em 1em;
+	}
+
+	.back-button {
+		margin: 4em 4em 0 4em;
 	}
 
 /* Container */
@@ -3455,9 +3432,8 @@ select, textarea {
 
 		/* List */
 		p {
-			font-size: 1.0rem;
 			text-align: left;
-			line-height: 1.5rem;
+			line-height: 1.5em;
 		}
 			ul li{
 				font-size: 1.0rem;
@@ -3489,7 +3465,7 @@ select, textarea {
 		/* Footer */
 
 			#footer {
-				padding: 5em 3em 5em 3em ;
+				padding: 5em 3em 10em 3em ;
 			}
 
 		/* One */

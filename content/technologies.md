@@ -1,5 +1,6 @@
 +++
 title = "Languages I've Used"
+date = 2022-09-06
 +++
 
 So far in  my education I've had the opportunity to use Java, C#, C, Flutter (Dart), Javascript + HTML/CSS, and Python. More recently, I've had the most experience doing projects in C -- more by accident than choice. 
