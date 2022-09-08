@@ -9,7 +9,7 @@ repo = "https://github.com/xNS5/UmlClassEditor"
 logo = "uml.png"
 alt = "The UML Project Logo, a picture of boxes connected by lines."
 +++
-
+---
 ## About UML Class Editor
 
 I came across this project while browsing [FOSSdroid](https://fossdroid.com/). After I took an OOP class, I realized

@@ -9,7 +9,7 @@ repo = "https://github.com/xNS5/Deadwood"
 logo = "deadwood.jpg"
 alt = "The deadwood logo, a picture of a person riding a fake horse wearing a 10-gallon hat. Behind them is a backdrop of clouds. "
 +++
-
+---
 ## About Deadwood
 
 Deadwood is a free board game by [Cheapass Games](https://cheapass.com/free-games/deadwood/). This was a project for my OOP class, done in 

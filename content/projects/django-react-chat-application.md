@@ -9,10 +9,8 @@ repo = "https://github.com/xNS5/django-react-chat-app"
 logo = "python-file-symbol.png"
 alt = "A picture of a digital file, with a black bottom border with the letters PY representing the Python programming language, and on top is the Python logo consisting of two snakes intertwined."
 +++
-
+---
 ## About the Application
-
-(Please shoot me an email to request access to the application. Considering this was part of a job application I'd like to keep this project as low-profile as possible.)
 
 This project was given to me as a part of a project-based interview through a third-party hiring company. This was one of the first "interviews" I participated in, and gave me some enlightening
 experiences and insights into what I needed to improve upon as a developer. I was added to a Slack channel with a number of other developers who would be helping me through the interview.

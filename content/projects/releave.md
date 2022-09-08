@@ -9,7 +9,7 @@ repo = "https://github.com/xNS5/ReLeave"
 logo = "releave.png"
 alt = "The ReLeave project logo, a series of colored blocks forming the letter R."
 +++
-
+---
 ## About ReLeave
 
 I came up with this project over the summer of 2020. I had discovered the [/r/Leaves](https://reddit.com/r/leaves) subreddit, and it occurred to me that there may

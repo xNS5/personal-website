@@ -22,15 +22,17 @@
         {% set pages = section.pages %}
         {% endif %}
         {% for page in pages %}
-        <article class="box">
+        <article class="box-list">
           <h2 class="title">
-            <span class="image">
-              <img src='/images/{{ page.extra.logo }}' class="project_logo" alt="{{ page.extra.alt }}"/>
-            </span>
-            <a href='{{ page.permalink }}'>
-              {{ page.title }}
-            </a>
-            <p class="tech">{{ page.extra.tech }}</p>
+            <div>
+              <a class="project-title-container" href='{{ page.permalink }}'>
+                <img src='/images/{{ page.extra.logo }}' class="project-logo" alt="{{ page.extra.alt }}"/>
+                <h3 class="project-title">
+                  {{ page.title }}
+                  <p class="tech">{{ page.extra.tech }}</p>
+                </h3>
+              </a>
+            </div>
           </h2>
           <p class="subtitle">{{ page.description }}</p>
           <div class="columns is-multiline is-gapless">
@@ -40,7 +42,7 @@
           </div>
           <div class="content mt-2">
             {{ page.summary | safe }}
-            <a class="has-text-danger-dark has-text-weight-semibold" href='{{ page.permalink }}'>
+            <a href='{{ page.permalink }}'>
               Read More
               <span class="icon is-small">
                 <i class="fas fa-arrow-right fa-xs"></i>

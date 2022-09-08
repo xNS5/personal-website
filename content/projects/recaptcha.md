@@ -9,7 +9,7 @@ repo = ""
 logo = "captcha.png"
 alt = "A captcha icon of 3 arrows forming a circle."
 +++
-
+---
 ## About ReCaptcha
 
 According to [Google](https://www.google.com/recaptcha/about/):

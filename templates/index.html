@@ -66,14 +66,12 @@
       {% for page in projects.pages %}
       if( i < 3 && '{{page.draft}}' === 'false'){
         let div_col = document.createElement('div');
-        div_col.setAttribute('class', 'col-4 col-12-medium');
-        div_col.innerHTML += '<span class="image">' +
-                '<img src="/images/{{page.extra.logo}}" class="project_logo" alt="{{ page.title }} project logo"/></span>' +
+        div_col.setAttribute('class', 'col-4 col-12-small');
+        div_col.innerHTML += '' +
+                '<img src="/images/{{page.extra.logo}}" class="project-logo-home" alt="{{ page.title }} project logo"/>' +
                 '<h2><strong>{{ page.title }}</strong> - {{ page.extra.tech }}</h2> ' +
                 '<p>{{ page.description }}</p>' +
-                '<ul class="actions special">' +
-                '<li><a href= "{{ page.permalink }}" class="button">More</a></li>' +
-                '</ul>';
+                '<a href= "{{ page.permalink }}" class="button">More</a>'
         div_row.appendChild(div_col);
         i++;
       }
