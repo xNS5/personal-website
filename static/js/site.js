@@ -31,7 +31,7 @@ function documentReadyCallback() {
       ]
     });
   }
-};
+}
 
 if (document.readyState === 'loading') {  // Loading hasn't finished yet
   document.addEventListener('DOMContentLoaded', documentReadyCallback);

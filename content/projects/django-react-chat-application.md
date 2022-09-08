@@ -1,6 +1,6 @@
 +++
-title = "Django/React Chat Application"
-description = "A Full-Stack chat application "
+title = "Django+React Chat Application"
+description = "A Full-Stack chat application utilizing Django, ReactJS, and websockets."
 draft = false
 date = 2022-07-19
 [extra]
