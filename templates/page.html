@@ -1,9 +1,7 @@
 {% extends 'base.html' %}
-
 {% block title %}
 {{ config.title }} | {{ page.title }}
 {% endblock %}
-
 {% block content %}
 <section class="section">
   <div class="container">
@@ -18,17 +16,9 @@
             <div class="column is-8">
               {{ macros::page_publish_metadata(page=page) }}
             </div>
-            <div class="column is-4 has-text-right-desktop">
-              {{ macros::page_content_metadata(page=page) }}
-            </div>
             <div class="column">
               {% if page.taxonomies.categories %}
               {{ macros::render_categories(categories=page.taxonomies.categories) }}
-              {% endif %}
-            </div>
-            <div class="column has-text-right-desktop">
-              {% if page.taxonomies.tags %}
-              {{ macros::render_tags(tags=page.taxonomies.tags) }}
               {% endif %}
             </div>
           </div>
@@ -74,7 +64,7 @@
 {% if page.earlier or page.later or page.lighter or page.heavier %}
 <section class="section">
   <div class="container">
-    <div class="columns is-centered">
+    <div class="columns">
       <div class="column is-8">
         <nav class="level">
           {% if page.later %}
@@ -113,20 +103,6 @@
           </div>
           {% endif %}
         </nav>
-      </div>
-    </div>
-  </div>
-</section>
-{% endif %}
-{% endblock %}
-
-{% block comment %}
-{% if page.extra.comments and config.extra.commenting.disqus %}
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-6">
-        <div id="disqus_thread"></div>
       </div>
     </div>
   </div>
@@ -178,22 +154,6 @@
       isTicking = true;
     }
   }, false);
-</script>
-{% endif %}
-
-{% if page.extra.comments and config.extra.commenting.disqus %}
-<script>
-  var disqus_config = function () {
-    this.page.url = "{{config.base_url | safe}}";
-    this.page.identifier = "{{ current_path | safe}}";
-  };
-
-  (function () {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://{{ config.extra.commenting.disqus | safe}}.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
 </script>
 {% endif %}
 {% endblock %}

@@ -14,8 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
   <link id="dark-scheme-icon" rel="shortcut icon" type="image/jpg" href='{{ get_url(path="icons/code-black.ico")}}'>
   <link id="light-scheme-icon" rel="shortcut icon" type="image/jpg" href='{{ get_url(path="icons/code-white.ico")}}'>
-  <link rel="stylesheet" href=' {{ get_url(path="main.css")}}'>
-  <link href="{{ get_url(path='deep-thought.css') }}" rel="stylesheet" />
+  <link rel="stylesheet" href="/main.css">
 
   {% block user_custom_stylesheet %}
   {% endblock %}
@@ -36,7 +35,7 @@
       gtag("js", new Date());
       gtag("config", "{{ config.extra.analytics.google }}");
     </script>
-  <link rel="stylesheet" href="../static/main.css">
+
   {% endif %}
   {% endblock analytics %}
 </head>
@@ -74,7 +73,7 @@
 
   {% block pagination %}
   {% if paginator.previous or paginator.next %}
-  <section class="section">
+  <section class="section is-centered">
     <div class="container">
       <nav class="pagination is-centered" role="navigation" aria-label="pagination">
         <a class="pagination-previous" href='{{ paginator.previous }}' {% if not paginator.previous %} disabled {% endif %}>
@@ -83,21 +82,19 @@
           </span>
           Previous
         </a>
+        <ul class="pagination-list">
+          {% for pager in range(start=1, end=paginator.number_pagers+1) %}
+          <a class="pagination-link {% if paginator.current_index == pager %}is-current{% endif %}" href='{{ paginator.base_url }}{{pager}}' aria-label="Goto page {{pager}}">
+            {{pager}}
+          </a>
+          {% endfor %}
+        </ul>
         <a class="pagination-next" href='{{ paginator.next }}' {% if not paginator.next %} disabled {% endif %}>
-          Next page
+          Next Page
           <span class="icon">
             <i class="fas fa-angle-double-right"></i>
           </span>
         </a>
-        <ul class="pagination-list">
-          {% for pager in range(start=1, end=paginator.number_pagers+1) %}
-          <li>
-            <a class="pagination-link {% if paginator.current_index == pager %}is-current{% endif %}" href='{{ paginator.base_url }}{{pager}}' aria-label="Goto page {{pager}}">
-              {{pager}}
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
       </nav>
     </div>
   </section>
@@ -105,20 +102,36 @@
   {% endblock %}
 
   {% block footer %}
-  <footer class="footer py-4">
+  <footer id="footer">
     <div class="content has-text-centered">
       {{ macros:: social_links( social_config=config.extra.social) }}
     </div>
+    <ul class="copyright">
+      <li>Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a></li>
+      <li>{{ config.extra.author.copyright }}</li>
+    </ul>
   </footer>
   {% endblock %}
-
-
-  <script type="text/javascript" src='{{ get_url(path="js/jquery.min.js") }}'></script>
-  <script type="text/javascript" src='{{ get_url(path="js/jquery.scrolly.min.js") }}'></script>
-  <script type="text/javascript" src='{{ get_url(path="js/browser.min.js") }}'></script>
-  <script type="text/javascript" src='{{ get_url(path="js/breakpoints.min.js") }}'></script>
-  <script type="text/javascript" src='{{ get_url(path="js/main.js") }}'></script>
-  <script type="text/javascript" src='{{ get_url(path="js/util.js") }}'></script>
 </body>
+
+<script>
+  const lightSchemeIcon = document.getElementById('light-scheme-icon');
+  const darkSchemeIcon = document.getElementById('dark-scheme-icon');
+  if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+    darkSchemeIcon.remove();
+    document.head.append(lightSchemeIcon);
+  } else {
+    lightSchemeIcon.remove();
+    document.head.append(darkSchemeIcon);
+  }
+</script>
+
+<script type="text/javascript" src='{{ get_url(path="js/jquery.min.js") }}'></script>
+<script type="text/javascript" src='{{ get_url(path="js/jquery.scrolly.min.js") }}'></script>
+<script type="text/javascript" src='{{ get_url(path="js/browser.min.js") }}'></script>
+<script type="text/javascript" src='{{ get_url(path="js/breakpoints.min.js") }}'></script>
+<script type="text/javascript" src='{{ get_url(path="js/main.js") }}'></script>
+<script type="text/javascript" src='{{ get_url(path="js/util.js") }}'></script>
+<script type="text/javascript" src="{{ get_url(path='js/site.js') }}"></script>
 
 </html>

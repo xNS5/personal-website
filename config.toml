@@ -85,7 +85,7 @@ highlight_code = true
 # Put all your custom variables here
 navbar_items = [
    {code = "en", nav_items = [
-        { url= "", title="Home"},
+        { url= "/", title="Home"},
         { url="projects", title="Projects"},
         { url="resume", title="Resume"},
         { url="https://github.com/xNS5", title="Github"},

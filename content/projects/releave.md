@@ -1,7 +1,6 @@
 +++
 title = "ReLeave"
 description = "A cross-platform mobile application designed to aid a person going through Cannabis abuse recovery."
-template="project.html"
 draft = false
 date = 2022-01-02
 [extra]

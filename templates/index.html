@@ -25,4 +25,73 @@
     </div>
   </div>
 </section>
+
+<!-- Technologies -->
+<section title="Section two, icons and text in the foreground with a picture of flowers taken at Asilomar State Park in Pacific Grove California." id="two" class="main style2">
+  {% set tech = get_page(path="technologies.md") %}
+  <div class="container">
+    <div class="row gtr-150">
+      <div class="col-6 col-12-medium">
+        <ul class="major-icons">
+          <li><span title="Light green HTML tag icon" class="icon solid style1 major fa-code"></span></li>
+          <li><span title="Light green git branch icon" class="icon solid style2 major fa-code-branch"></span></li>
+          <li><span title="Cyan camera icon" class="icon solid style3 major fa-camera-retro"></span></li>
+          <li><span title="Light blue coffee mug icon" class="icon solid style4 major fa-coffee"></span></li>
+          <li><span title="Blue computer monitor icon" class="icon solid style5 major fa-desktop"></span></li>
+          <li><span title="Light purple bug icon" class="icon solid style6 major fa-bug"></span></li>
+        </ul>
+      </div>
+      <div class="col-6 col-12-medium">
+        <header class="major">
+          <h1><string>{{ tech.title }}</string></h1>
+        </header>
+        <p>{{ tech.content | safe }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="three" class="main style1 special">
+  {% set projects = get_section(path="projects/_index.md") %}
+  <div class="container">
+    <header class="major">
+      <a class="project_title" href="projects"><h1><strong>{{projects.title}}</strong></h1></a>
+    </header>
+    <p>While I have worked on a number of projects during my schooling, these are the ones that I am the most proud of.</p>
+    <script>
+      let div_row = document.createElement('div');
+      div_row.setAttribute('class', 'row gtr-150')
+      let i = 0;
+      {% for page in projects.pages %}
+      if( i < 3 && '{{page.draft}}' === 'false'){
+        let div_col = document.createElement('div');
+        div_col.setAttribute('class', 'col-4 col-12-medium');
+        div_col.innerHTML += '<span class="image">' +
+                '<img src="/images/{{page.extra.logo}}" class="project_logo" alt="{{ page.title }} project logo"/></span>' +
+                '<h2><strong>{{ page.title }}</strong> - {{ page.extra.tech }}</h2> ' +
+                '<p>{{ page.description }}</p>' +
+                '<ul class="actions special">' +
+                '<li><a href= "{{ page.permalink }}" class="button">More</a></li>' +
+                '</ul>';
+        div_row.appendChild(div_col);
+        i++;
+      }
+      {% endfor %}
+      document.getElementById('three').appendChild(div_row);
+    </script>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="four" class="main style2 special">
+  <div class="container">
+    <header class="major">
+      <h2>Want to get in touch?</h2>
+    </header>
+    <ul class="actions special">
+      <li><a href="{{config.extra.author.mailto}}" class="button wide" style="mix-blend-mode: normal">Contact Me</a></li>
+    </ul>
+  </div>
+</section>
 {% endblock %}

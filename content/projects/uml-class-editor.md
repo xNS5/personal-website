@@ -1,7 +1,6 @@
 +++
 title = "UML Class Editor"
 description = "An Android application for creating UML diagrams."
-template="project.html"
 draft = false
 date = 2022-03-01
 [extra]

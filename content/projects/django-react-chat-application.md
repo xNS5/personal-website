@@ -1,7 +1,6 @@
 +++
 title = "Django/React Chat Application"
 description = "A Full-Stack chat application "
-template="project.html"
 draft = false
 date = 2022-07-19
 [extra]
