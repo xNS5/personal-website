@@ -534,7 +534,7 @@ select, textarea {
 		}
 
 			.row.gtr-150 > * {
-				padding: 0 3em 0 3em;
+				padding: 0 0 0 3em;
 			}
 
 			.row.gtr-150.gtr-uniform {
