@@ -84,9 +84,11 @@
         </a>
         <ul class="pagination-list">
           {% for pager in range(start=1, end=paginator.number_pagers+1) %}
-          <a class="pagination-link is-rounded {% if paginator.current_index == pager %}is-current{% endif %}" href='{{ paginator.base_url }}{{pager}}' aria-label="Goto page {{pager}}">
-            {{pager}}
-          </a>
+          <li>
+            <a class="pagination-link is-rounded {% if paginator.current_index == pager %}is-current{% endif %}" href='{{ paginator.base_url }}{{pager}}' aria-label="Goto page {{pager}}">
+              {{pager}}
+            </a>
+          </li>
           {% endfor %}
         </ul>
         <a class="pagination-next is-small is-rounded" href='{{ paginator.next }}' {% if not paginator.next %} disabled {% endif %}>

@@ -2,7 +2,7 @@
 <div>
 
   {% if social_config.google_scholar %}
-  <a href="https://scholar.google.com/citations?user={{ social_config.google_scholar }}" target="_blank">
+  <a href="https://scholar.google.com/citations?user={{ social_config.google_scholar }}" target="_blank" title="Google Scholar">
     <span class="icon is-large" title="Google Scholar">
 			<i class="ai ai-google-scholar ai-lg"></i>
     </span>
@@ -10,7 +10,7 @@
   {% endif %}
 
   {% if social_config.facebook %}
-  <a href="https://facebook.com/{{ social_config.facebook }}" target="_blank">
+  <a href="https://facebook.com/{{ social_config.facebook }}" target="_blank" title="Facebook">
     <span class="icon is-large" title="Facebook">
       <i class="fab fa-facebook fa-lg"></i>
     </span>
@@ -18,7 +18,7 @@
   {% endif %}
 
   {% if social_config.linkedin %}
-  <a href="https://www.linkedin.com/in/{{ social_config.linkedin }}" target="_blank">
+  <a href="https://www.linkedin.com/in/{{ social_config.linkedin }}" target="_blank" title="Linkedin">
     <span class="icon is-large" title="LinkedIn">
       <i class="fab fa-linkedin fa-lg"></i>
     </span>
@@ -26,7 +26,7 @@
   {% endif %}
 
   {% if social_config.github %}
-  <a href="https://github.com/{{ social_config.github }}" target="_blank">
+  <a href="https://github.com/{{ social_config.github }}" target="_blank" title="Github">
     <span class="icon is-large" title="GitHub">
       <i class="fab fa-github fa-lg"></i>
     </span>
@@ -34,7 +34,7 @@
   {% endif %}
 
   {% if social_config.gitlab %}
-  <a href="https://gitlab.com/{{ social_config.gitlab }}" target="_blank">
+  <a href="https://gitlab.com/{{ social_config.gitlab }}" target="_blank" title="Gitlab">
     <span class="icon is-large" title="GitLab">
       <i class="fab fa-gitlab fa-lg"></i>
     </span>
@@ -42,17 +42,9 @@
   {% endif %}
 
   {% if social_config.stackoverflow %}
-  <a href="https://stackoverflow.com/users/{{ social_config.stackoverflow }}" target="_blank">
+  <a href="https://stackoverflow.com/users/{{ social_config.stackoverflow }}" target="_blank" title="StackOverflow">
     <span class="icon is-large" title="Stack Overflow">
       <i class="fab fa-stack-overflow fa-lg"></i>
-    </span>
-  </a>
-  {% endif %}
-
-  {% if social_config.keybase %}
-  <a href="https://keybase.io/{{ social_config.keybase }}" target="_blank">
-    <span class="icon is-large" title="Keybase">
-      <i class="fab fa-keybase fa-lg"></i>
     </span>
   </a>
   {% endif %}
@@ -66,7 +58,7 @@
   {% endif %}
 
   {% if social_config.email %}
-  <a href="mailto:{{ social_config.email }}" target="_blank">
+  <a href="mailto:{{ social_config.email }}" target="_blank" title="Email">
     <span class="icon is-large" title="Email">
       <i class="far fa-envelope fa-lg"></i>
     </span>
@@ -74,7 +66,7 @@
   {% endif %}
   
   {% if social_config.medium %}
-  <a href="https://medium.com/@{{ social_config.medium }}" target="_blank">
+  <a href="https://medium.com/@{{ social_config.medium }}" target="_blank" title="Medium">
     <span class="icon is-large" title="Medium">
       <i class="fab fa-medium fa-lg"></i>
     </span>
@@ -82,7 +74,7 @@
   {% endif %}
 
   {% if social_config.googleplay %}
-  <a href="https://play.google.com/store/apps/developer?id={{ social_config.googleplay }}&hl=en" target="_blank">
+  <a href="https://play.google.com/store/apps/developer?id={{ social_config.googleplay }}&hl=en" target="_blank" title="Google Play">
     <span class="icon is-large" title="Google play">
       <i class="fab fa-google-play fa-lg"></i>
     </span>
