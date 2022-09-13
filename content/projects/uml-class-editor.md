@@ -41,7 +41,7 @@ This wasn't causing the crash, but it was something that needed to be addressed.
 I have a few ideas for how to make this application better, at least for my purposes. 
 
 * Color customization. I like to be able to choose the theme of the applications I use, like in [Slide for Reddit](https://play.google.com/store/apps/details?id=me.ccrama.redditslide) for example
-and I'd love to add that functionality to this application
+and I'd love to add that functionality to this application. 
 * Exporting to different file types. Currently the data exports to .html files, which isn't the most practical when it comes to sharing files with others. I intend to create options to 
 export the diagrams to PDF and possibly JPG/PNG formats. 
 * Cloud Storage integration. A lot of applications like this have the ability to sign in with a cloud storage account such as Google Drive, One Drive, Dropbox, etc. and I want to add that functionality

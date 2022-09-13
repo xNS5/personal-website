@@ -3,31 +3,35 @@
 {{ config.title }} | {{ page.title }}
 {% endblock %}
 {% block content %}
-<section class="section">
-  <div class="container">
-    <div class="columns">
-      <div class="column">
-        <article class="box">
-          <h1 class="title">
-            {{ page.title }}
-            {% if page.extra.repo %}
-              - <a href="{{page.extra.repo}}">(Repository Link)</a>
-            {% endif %}
-          </h1>
-          <p class="subtitle">{{ page.description }}</p>
-          <div class="columns is-multiline is-gapless">
-            <div class="column">
-              {{ macros::page_publish_metadata(page=page) }}
+<main>
+  <section class="section">
+    <div class="container" style="padding-top: 1em;">
+      <div class="columns">
+        <div class="column">
+          <article class="box">
+            <div class="project-page-header">
+              <h1 class="title">
+                {{ page.title }}
+                {% if page.extra.repo %}
+                - <a href="{{page.extra.repo}}">(Repository Link)</a>
+                {% endif %}
+              </h1>
+              <p class="subtitle">{{ page.description }}</p>
+              <div class="columns is-multiline is-gapless">
+                <div class="column">
+                  {{ macros::page_publish_metadata(page=page) }}
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="one">
-            {{ page.content | safe }}
-          </div>
-        </article>
+            <div class="project-content">
+              {{ page.content | safe }}
+            </div>
+          </article>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 {% endblock %}
 
 {% block pagination %}
