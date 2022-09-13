@@ -2,7 +2,6 @@
 title = "Deadwood"
 description = "A MVC board game developed in an Object-Oriented Programming class."
 draft = false
-template = "project.html"
 date = 2022-01-03
 [extra]
 tech = "Java, Swing, XML"
