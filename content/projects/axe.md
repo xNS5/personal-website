@@ -1,15 +1,15 @@
 +++
 title = "WWU Accessibility Engine (ACE)"
 description = "A full-stack accessibility automation tool developed for Wandke Consulting in Bellingham, Washington."
-template = "project.html"
 draft = false
+date = 2022-01-03
 [extra]
 tech = "Javascript (Vue/Sails), HTML + CSS, Python"
 repo = "https://github.com/xNS5/WWU-Accessibility-Engine"
 logo = "accessibility.png"
 alt = "WWU ACE Logo -- An Accessibility symbol of a person surrounded by a circle."
 +++
-
+---
 ## About ACE
 This is my capstone project during my senior year at Western Washington University. I led a team of 4 in the development of an accessibility testing program for Daman Wandke of [Wandke Consulting](https://wandke.com/), an accessibility consulting company
 in Bellingham, WA. My team and I spent a year working on a full-stack application to streamline their website accessibility evaluation process. Initially, they used Deque Labs' aXe browser extension to determine whether a given webpage conforms to the World Wide Web Consortium's

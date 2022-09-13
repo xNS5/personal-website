@@ -1,18 +1,16 @@
 +++
-title = "Django/React Chat Application"
-description = "A Full-Stack chat application "
-template = "project.html"
+title = "Django+React Chat Application"
+description = "A Full-Stack chat application utilizing Django, ReactJS, and websockets."
 draft = false
+date = 2022-07-19
 [extra]
 tech = "ReactJS, Django, REST"
 repo = "https://github.com/xNS5/django-react-chat-app"
 logo = "python-file-symbol.png"
 alt = "A picture of a digital file, with a black bottom border with the letters PY representing the Python programming language, and on top is the Python logo consisting of two snakes intertwined."
 +++
-
+---
 ## About the Application
-
-(Please shoot me an email to request access to the application. Considering this was part of a job application I'd like to keep this project as low-profile as possible.)
 
 This project was given to me as a part of a project-based interview through a third-party hiring company. This was one of the first "interviews" I participated in, and gave me some enlightening
 experiences and insights into what I needed to improve upon as a developer. I was added to a Slack channel with a number of other developers who would be helping me through the interview.
@@ -43,7 +41,7 @@ is from the other user, it's assumed that they've read the conversation up until
 If it's marked as read, then the read receipt should be moved to the most recent message. 
 
 
-#### All Aboard the Struggle Bus
+### All Aboard the Struggle Bus
 
 The two major issues I faced with this step was that I hadn't ever messed with [Websockets](https://socket.io/), and that I didn't really understand what it meant to ["deep copy"](https://stackoverflow.com/questions/48710797/how-do-i-deep-clone-an-object-in-react) a conversation.
 I was given the hint to modify the websocket, but it didn't really click what that meant. I was so hooked (so to speak) on the frontend application, that I didn't think to check the backend for an *actual* websocket application. That was the biggest

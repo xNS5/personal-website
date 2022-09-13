@@ -1,6 +1,6 @@
 +++
 title = "Home"
-template = "index.html"
+description = "It's All Segfaults From Here..."
 +++
 
 # Hi, I'm Michael

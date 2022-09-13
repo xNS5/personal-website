@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ config.title }} | {{ page.title }}
+{% endblock %}
+{% block content %}
+<main>
+  <section class="section">
+    <div class="container" style="padding-top: 1em;">
+      <div class="columns">
+        <div class="column">
+          <article class="box">
+            <div class="project-page-header">
+              <h1 class="title">
+                {{ page.title }}
+                {% if page.extra.repo %}
+                - <a href="{{page.extra.repo}}">(Repository Link)</a>
+                {% endif %}
+              </h1>
+              <p class="subtitle">{{ page.description }}</p>
+              <div class="columns is-multiline is-gapless">
+                <div class="column">
+                  {{ macros::page_publish_metadata(page=page) }}
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              {{ page.content | safe }}
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
+
+{% block pagination %}
+{% if page.earlier or page.later or page.lighter or page.heavier %}
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <nav class="level">
+          {% if page.later %}
+          <div class="level-item has-text-centered">
+            <a class="button is-black is-outlined" href="{{ page.later.permalink }}">
+              <span class="icon">
+                <i class="fas fa-arrow-circle-left"></i>
+              </span>
+              {{ page.later.title }}
+            </a>
+          </div>
+          {% endif %} {% if page.earlier %}
+          <div class="level-item">
+            <a class="button" href="{{ page.earlier.permalink }}">
+              {{ page.earlier.title }}<span class="icon">
+                <i class="fas fa-arrow-circle-right"></i>
+              </span>
+            </a>
+          </div>
+          {% endif %} {% if page.heavier %}
+          <div class="level-item has-text-centered">
+            <a class="button is-black is-outlined" href="{{ page.heavier.permalink }}">
+              <span class="icon mr-2">
+                <i class="fas fa-arrow-circle-left"></i>
+              </span>
+              {{ page.heavier.title }}
+            </a>
+          </div>
+          {% endif %} {% if page.lighter %}
+          <div class="level-item has-text-centered">
+            <a class="button is-black is-outlined" href="{{ page.lighter.permalink }}">
+              {{ page.lighter.title }}<span class="icon ml-2">
+                <i class="fas fa-arrow-circle-right"></i>
+              </span>
+            </a>
+          </div>
+          {% endif %}
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}
+
+{% block custom_js %}
+{% if page.extra.toc %}
+<script type="text/javascript">
+  const menuBarHeight = document.querySelector("nav.navbar").clientHeight;
+  const tocItems = document.querySelectorAll(".toc");
+  const navSections = new Array(tocItems.length);
+
+  tocItems.forEach((el, i) => {
+    let id = el.getAttribute("id").substring(5);
+    navSections[i] = document.getElementById(id);
+  })
+
+  function isVisible(tocIndex) {
+    const current = navSections[tocIndex];
+    const next = tocIndex < tocItems.length - 1 ? navSections[tocIndex + 1]
+      : document.querySelectorAll("section.section").item(1);
+
+    const c = current.getBoundingClientRect();
+    const n = next.getBoundingClientRect();
+    const h = (window.innerHeight || document.documentElement.clientHeight);
+
+    return (c.top <= h) && (n.top - menuBarHeight >= 0);
+  }
+
+  function activateIfVisible() {
+    for (b = true, i = 0; i < tocItems.length; i++) {
+      if (b && isVisible(i)) {
+        tocItems[i].classList.add('is-active');
+        b = false;
+      } else
+        tocItems[i].classList.remove('is-active');
+    }
+  }
+
+  var isTicking = null;
+  window.addEventListener('scroll', () => {
+    if (!isTicking) {
+      window.requestAnimationFrame(() => {
+        activateIfVisible();
+        isTicking = false;
+      });
+      isTicking = true;
+    }
+  }, false);
+</script>
+{% endif %}
+{% endblock %}
