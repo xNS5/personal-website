@@ -1,4 +1,4 @@
----
++++
 title = "Django+React Chat Application"
 description = "A Full-Stack chat application utilizing Django, ReactJS, and websockets."
 draft = false
@@ -8,6 +8,7 @@ tech = "ReactJS, Django, REST"
 repo = "https://github.com/xNS5/django-react-chat-app"
 logo = "python-file-symbol.png"
 alt = "A picture of a digital file, with a black bottom border with the letters PY representing the Python programming language, and on top is the Python logo consisting of two snakes intertwined."
++++
 ---
 ## About the Application
 
