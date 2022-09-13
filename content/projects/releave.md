@@ -10,8 +10,11 @@ repo = "https://github.com/xNS5/ReLeave"
 logo = "releave.png"
 alt = "The ReLeave project logo, a series of colored blocks forming the letter R."
 +++
-
+---
 ## About ReLeave
+
+
+[//]: # (<img class="project_screenshot_mobile_left" src="/images/releave_home.jpg" alt="Releave Home Screen with two buttons: one blue button with the words 'Community Check-In', and one green button with the words 'Personal Check-in'. In the top right corner are the words 'Days Sober: 366' indicating that the user has been sober for a year and one day."/>)
 
 I came up with this project over the summer of 2020. I had discovered the [/r/Leaves](https://reddit.com/r/leaves) subreddit, and it occurred to me that there may
 not be many applications out there specifically for cannabis abuse. Most applications I came across were a one-size-fits-all type application that
@@ -24,6 +27,8 @@ I had fully intended to create this application on my own, but I saw an opportun
 to come up with a project idea and pitch it to the class. I made my pitch, and a few other students also thought that this would be a great project to work on. I decided to do this project in Flutter because technology is always a limiting factor for people. Some peopne can't afford the newest iPhone or the highest-spec
 Android device, so it had to be friendly with most newer OS versions and not be resource-heavy. As a perk, this language is very friendly toward new users and is well documented.
 
+<img class="project_screenshot_mobile_right" src="/images/releave_rating.jpg" alt="The picture contains a checkbox with the caption 'Did you refrain from using cannabis today?' with a box below that for the user to tick, and 7 sliders corresponding to feelings such as happiness, sadness, craving, for the user to rate their feelings at that given time." />
+
 This application has the following features:  
 <ul>
  <li>Mood/Craving tracking.</li>
@@ -33,9 +38,6 @@ This application has the following features:
  <li>A badge system that awards the user whenever they reach a milestone (e.g. staying x days sober, saving x dollars by refraining from consuming cannabis products, etc.)</li>
  <li>Interacting with a community of people who are also attemtping to maintain sobriety.</li> 
 </ul>
-
-  <img class="project_screenshot_mobile_right" src="/images/releave_home.jpg" alt="Releave Home Screen with two buttons: one blue button with the words 'Community Check-In', and one green button with the words 'Personal Check-in'. In the top
-  right corner are the words 'Days Sober: 366' indicating that the user has been sober for a year and one day."/>
 
 While this is purely anecdotal, many of the posts I've seen on [/r/Leaves](https://reddit.com/r/leaves) involve a lot of self reflection. People talk about behaviors they developed as a result of their dependency, how they treated others, missed opportunities, and how they felt that day after being sober for an extended period
 of time. To aid with that reflection, we decided to implement a Mood/Craving tracker system which allows them to reflect back on their day. They will have the
@@ -53,9 +55,9 @@ There are a lot of habit tracking applications out there that could be used to h
 recovery. Many existing applications have a self-hosted platform for users to interact, but a downside of that especially for a new application such as ReLeave is
 getting enough users on the platform in the first place. Instead of building out a platform for users to interact, I had the idea to instead leverage Reddit's [/r/Leaves](https://reddit.com/r/leaves) community.
 
-<img class="project_screenshot_mobile_left" src="/images/releave_rating.jpg" alt="The picture contains a checkbox with the caption 'Did you refrain from using cannabis today?' with a box below that for the user to tick, and 7 sliders corresponding to feelings such as happiness, sadness, craving, for the user to rate their feelings at that given time." />
-
 ## Technologies Used
+
+<img class="project_screenshot_mobile_right" src="/images/releave_leaves.jpg" alt="A screenshot of the Reddit feature, listing off posts from users of the /r/Leaves subreddit." />
 
 Flutter was chosen because, as mentioned before, it's a framework that can transpile code into code that can be run on both iOS and Android devices, 
 allowing people with any device to use it. Reddit is already designed for users to communicate, has a free API that I could leverage, and I wouldn't have to manage 
@@ -65,8 +67,8 @@ interact with the subreddit. Data is stored in a local SQlite database, using a 
 The journaling feature can either save the data to local memory or to post to the [/r/Leaves](https://reddit.com/r/leaves) subreddit, provided they already have
 an account.
 
-<img class="project_screenshot_mobile_right" src="/images/releave_leaves.jpg" alt="A screenshot of the Reddit feature, listing off posts from users of the /r/Leaves subreddit." />
-
+[//]: # (<img class="project_screenshot_mobile_left" src="/images/releave_home.jpg" alt="Releave Home Screen with two buttons: one blue button with the words 'Community Check-In', and one green button with the words 'Personal Check-in'. In the top right corner are the words 'Days Sober: 366' indicating that the user has been sober for a year and one day."/>)
+ 
 ## Thoughts
 
 This was my first project where I felt satisfied at the completion of the course. Flutter made this application very easy to throw together, and working with

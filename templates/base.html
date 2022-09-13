@@ -1,92 +1,139 @@
+{% import 'macros.html' as macros %}
 <!DOCTYPE html>
-<html lang="en" >
-    <head>
-      <meta charset="utf-8">
-      <title>{% block title %}{% endblock %}</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="author" content="{{ config.extra.author }}">
-      <meta name=description content="{{config.extra.description}}">
-      <link rel="stylesheet" href='{{ get_url(path="main.css")}}'>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
-      <link id="dark-scheme-icon" rel="shortcut icon" type="image/jpg" href='{{ get_url(path="icons/code-black.ico")}}'>
-      <link id="light-scheme-icon" rel="shortcut icon" type="image/jpg" href='{{ get_url(path="icons/code-white.ico")}}'>
+<html lang="{{lang}}">
 
-      <!-- Global site tag (gtag.js) - Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QK10RKYRF7"></script>
-      <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-QK10RKYRF7');
-      </script>
+<!-- https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css -->
 
-    </head>
-  <body>
-  <nav class="topnav fadeIn" id="topnav" role="navigation">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#ffffff" name="theme-color" />
+  <meta content="#da532c" name="msapplication-TileColor" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
+  <link id="dark-scheme-icon" rel="shortcut icon" type="image/jpg" href='{{ get_url(path="icons/code-black.ico")}}'>
+  <link id="light-scheme-icon" rel="shortcut icon" type="image/jpg" href='{{ get_url(path="icons/code-white.ico")}}'>
+  <link rel="stylesheet" href="/main.css">
+
+  {% block user_custom_stylesheet %}
+  {% endblock %}
+  <title>
+    {% block title %}
+    {{ config.title }}
+    {% endblock title %}
+  </title>
+
+  {% block analytics %}
+  {% if config.extra.analytics.google %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ config.extra.analytics.google }}"></script>
+    <script type="text/javascript">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "{{ config.extra.analytics.google }}");
+    </script>
+
+  {% endif %}
+  {% endblock analytics %}
+</head>
+
+<body class="has-background-white is-preload">
+  <nav aria-label="section navigation" class="navbar" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navMenu" role="button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end has-text-centered">
+          {% for item in config.extra.navbar_items %}
+            {% if lang == item.code %}
+              {% for nav in item.nav_items %}
+              <a class="navbar-item" href="{{ nav.url | replace(from='$BASE_URL', to=config.base_url) }}">
+                {{ nav.title }}
+              </a>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
   </nav>
-  <main>
-    {% block content %}
-    {% endblock %}
-  </main>
+  {% block header %}
+  {% endblock %}
+
+  {% block content %}
+  {% endblock %}
+
+  {% block pagination %}
+  {% if paginator.previous or paginator.next %}
+  <section class="section is-centered">
+    <div class="container">
+      <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <a class="pagination-previous is-small is-rounded" href='{{ paginator.previous }}' {% if not paginator.previous %} disabled {% endif %}>
+          <span class="icon">
+            <i class="fas fa-angle-double-left"></i>
+          </span>
+          Previous
+        </a>
+        <ul class="pagination-list">
+          {% for pager in range(start=1, end=paginator.number_pagers+1) %}
+          <li>
+            <a class="pagination-link is-rounded {% if paginator.current_index == pager %}is-current{% endif %}" href='{{ paginator.base_url }}{{pager}}' aria-label="Goto page {{pager}}">
+              {{pager}}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+        <a class="pagination-next is-small is-rounded" href='{{ paginator.next }}' {% if not paginator.next %} disabled {% endif %}>
+          Next Page
+          <span class="icon">
+            <i class="fas fa-angle-double-right"></i>
+          </span>
+        </a>
+      </nav>
+    </div>
+  </section>
+  {% endif %}
+  {% endblock %}
+
+  {% block footer %}
   <footer id="footer">
-    <ul class="icons">
-      {% for url in config.extra.footer_links %}
-        <li><a href='{{ url.url | safe }}' target="_blank" aria-label='{{url.title}}' class='{{url.css_class}}'><span class="label">{{url.title}}</span></a></li>
-      {% endfor %}
-    </ul>
+    <div class="content has-text-centered">
+      {{ macros:: social_links( social_config=config.extra.social) }}
+    </div>
     <ul class="copyright">
       <li>Powered by <a href="https://www.getzola.org/" target="_blank">Zola</a></li>
-      <li>{{ config.extra.copyright }}</li>
+      <li>{{ config.extra.author.copyright }}</li>
     </ul>
   </footer>
+  {% endblock %}
+</body>
 
-  <script type="text/javascript">
-    window.onload= function() {
-      var navbar = document.getElementById("topnav");
-      {% for url in config.extra.navbar_links %}
-      var a = document.createElement('a');
-      a.innerText = "{{ url.title | safe}}";
-      if (!("{{url.url | safe }}".includes("http") || "{{url.url | safe }}".includes("https"))) {
-        if ("{{ url.title | safe }}" === "Home") {
-          a.href = "{{ config.base_url | safe }}";
-        } else if("{{url.title | safe}}" === "Contact") {
-          a.href = "{{ url.url | safe }}"
-        } else {
-          a.href = "{{ config.base_url | safe }}{{ url.url | safe }}/";
-        }
-        if ("{{ section.permalink | safe }}" === a.href) {
-          a.setAttribute("class", "active");
-        }
-      } else {
-        a.href = "{{ url.url | safe }}";
-      }
-      if ("{{ url.target | safe }}".length > 0) {
-        a.target = "{{ url.target | safe}}";
-      }
-      navbar.appendChild(a);
-      {% endfor %}
-      navbar.innerHTML += '<a href="javascript:void(0);" onclick="toggleNav()" class="icon"><i class="fa fa-bars" ></i></a>'
-    }
+<script>
+  const lightSchemeIcon = document.getElementById('light-scheme-icon');
+  const darkSchemeIcon = document.getElementById('dark-scheme-icon');
+  if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+    darkSchemeIcon.remove();
+    document.head.append(lightSchemeIcon);
+  } else {
+    lightSchemeIcon.remove();
+    document.head.append(darkSchemeIcon);
+  }
+</script>
 
-      const lightSchemeIcon = document.getElementById('light-scheme-icon');
-      const darkSchemeIcon = document.getElementById('dark-scheme-icon');
-      if(window.matchMedia('(prefers-color-scheme: dark)').matches){
-        darkSchemeIcon.remove();
-        document.head.append(lightSchemeIcon);
-      } else {
-        lightSchemeIcon.remove();
-        document.head.append(darkSchemeIcon);
-      }
-  </script>
-  <script type="text/javascript" src='{{ get_url(path="js/jquery.min.js") }}'></script>
-  <script type="text/javascript" src='{{ get_url(path="js/jquery.scrolly.min.js") }}'></script>
-  <script type="text/javascript" src='{{ get_url(path="js/browser.min.js") }}'></script>
-  <script type="text/javascript" src='{{ get_url(path="js/breakpoints.min.js") }}'></script>
-  <script type="text/javascript" src='{{ get_url(path="js/main.js") }}'></script>
-  <script type="text/javascript" src='{{ get_url(path="js/util.js") }}'></script>
-  <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
-  </body>
+<script type="text/javascript" src='{{ get_url(path="js/jquery.min.js") }}'></script>
+<script type="text/javascript" src='{{ get_url(path="js/jquery.scrolly.min.js") }}'></script>
+<script type="text/javascript" src='{{ get_url(path="js/browser.min.js") }}'></script>
+<script type="text/javascript" src='{{ get_url(path="js/breakpoints.min.js") }}'></script>
+<script type="text/javascript" src='{{ get_url(path="js/main.js") }}'></script>
+<script type="text/javascript" src='{{ get_url(path="js/util.js") }}'></script>
+<script type="text/javascript" src="{{ get_url(path='js/site.js') }}"></script>
+
 </html>
