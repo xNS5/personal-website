@@ -9,12 +9,14 @@
       <div class="column">
         <article class="box">
           <h1 class="title">
-            {{ page.title }}
+            <strong>{{ page.title }}</strong>
             {% if page.extra.repo %}
               - <a href="{{page.extra.repo}}">(Repository Link)</a>
             {% endif %}
           </h1>
-          <p class="subtitle">{{ page.description }}</p>
+          {% if page.description %}
+            <p class="subtitle">{{ page.description }}</p>
+          {% endif %}
           <div class="columns is-multiline is-gapless">
             <div class="column">
               {{ macros::page_publish_metadata(page=page) }}

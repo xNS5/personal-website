@@ -85,8 +85,7 @@
 
 {% macro page_publish_metadata(page) %}
 <span class="icon-text has-text-grey">
-  <span>Published on</span>
-  <span><time datetime="{{ page.date }}">{{ page.date | date(format='%B %d, %Y') }}</time></span>
+  <span class="page_timestamp">Published on <time  datetime="{{ page.date }}">{{ page.date | date(format='%B %d, %Y') }}</time></span>
 </span>
 {% endmacro %}
 

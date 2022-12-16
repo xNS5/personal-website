@@ -25,18 +25,8 @@
   </title>
 
   {% block analytics %}
-  {% if config.extra.analytics.google %}
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{ config.extra.analytics.google }}"></script>
-    <script type="text/javascript">
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "{{ config.extra.analytics.google }}");
-    </script>
+  <div id="analytics-div" on></div>
 
-  {% endif %}
   {% endblock analytics %}
 </head>
 
@@ -126,6 +116,20 @@
     lightSchemeIcon.remove();
     document.head.append(darkSchemeIcon);
   }
+
+  window.addEventListener("load", () => {
+    if (location.hostname !== "localhost" && location.hostname !== '127.0.0.0.1' && "{{ config.extra.analytics.google }}".length > 0) {
+      var head = document.getElementsByName("head")[0];
+      var outerScript = document.createElement('script');
+      var innerScript = document.createElement('script');
+      outerScript.setAttribute("async", "");
+      outerScript.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id={{ config.extra.analytics.google }}");
+      innerScript.setAttribute("type", "text/javascript");
+      innerScript.innerHTML = 'window.dataLayer = window.dataLayer || []; function getag() { dataLayer.push(arguments); } gtag("js", new Date()); gtag("config", {{ config.extra.analytics.google }});';
+      outerScript.appendChild(innerScript);
+      head.appendChild(outerScript);
+    }
+  });
 </script>
 
 <script type="text/javascript" src='{{ get_url(path="js/jquery.min.js") }}'></script>

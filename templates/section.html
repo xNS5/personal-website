@@ -25,6 +25,7 @@
         <article class="box-list">
           <h2 class="title">
             <div>
+              {% if page.extra.repo %}
               <a class="project-title-container" href='{{ page.permalink }}'>
                 <img src='/images/{{ page.extra.logo }}' class="project-logo" alt="{{ page.extra.alt }}"/>
                 <h3 class="project-title">
@@ -32,6 +33,7 @@
                   <p class="tech">{{ page.extra.tech }}</p>
                 </h3>
               </a>
+              {% endif %}
             </div>
           </h2>
           <p class="subtitle">{{ page.description }}</p>
