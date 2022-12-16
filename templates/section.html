@@ -6,7 +6,7 @@
 
 {% block content %}
 <section class="section article-list">
-  <div class="container">
+  <div class="container" style="padding-top: 1em;">
     <header class="project-page-header major">
       <h1 class="title">{{ section.title }}</h1>
       <p class="subtitle">{{ section.description }}</p>
@@ -37,16 +37,16 @@
             </div>
           </h2>
           <p class="subtitle">{{ page.description }}</p>
-          <div class="columns is-multiline is-gapless">
-            <div class="column is-8">
+          <div class="column">
+            <div class="page-metadata">
               {{ macros::page_publish_metadata(page=page) }}
             </div>
           </div>
-          <div class="content mt-2">
+          <div class="page-metadata">
             {{ page.summary | safe }}
             <a href='{{ page.permalink }}'>
               Read More
-              <span class="icon is-small">
+              <span class="icon">
                 <i class="fas fa-arrow-right fa-xs"></i>
               </span>
             </a>

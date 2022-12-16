@@ -20,16 +20,17 @@
           <div class="columns is-multiline is-gapless">
             <div class="column">
               {{ macros::page_publish_metadata(page=page) }}
+              </div>
             </div>
-          </div>
-          <div class="one">
-            {{ page.content | safe }}
-          </div>
-        </article>
+            <div class="project-content">
+              {{ page.content | safe }}
+            </div>
+          </article>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</main>
 {% endblock %}
 
 {% block pagination %}
