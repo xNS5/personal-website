@@ -16,4 +16,4 @@ jobs:
           # Target branch
           PAGES_BRANCH: prod
           # Provide personal access token
-          TOKEN: $GITHUB_ACTOR:${{ secrets.WEBSITE_DEPLOY }}
+          TOKEN: ${{ secrets.WEBSITE_DEPLOY }}
