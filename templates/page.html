@@ -3,24 +3,23 @@
 {{ config.title }} | {{ page.title }}
 {% endblock %}
 {% block content %}
-<main>
-  <section class="section">
-    <div class="container" style="padding-top: 1em;">
-      <div class="columns">
-        <div class="column">
-          <article class="box">
-            <div class="project-page-header">
-              <h1 class="title">
-                {{ page.title }}
-                {% if page.extra.repo %}
-                - <a href="{{page.extra.repo}}">(Repository Link)</a>
-                {% endif %}
-              </h1>
-              <p class="subtitle">{{ page.description }}</p>
-              <div class="columns is-multiline is-gapless">
-                <div class="column">
-                  {{ macros::page_publish_metadata(page=page) }}
-                </div>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <article class="box">
+          <h1 class="title">
+            <strong>{{ page.title }}</strong>
+            {% if page.extra.repo %}
+              - <a href="{{page.extra.repo}}">(Repository Link)</a>
+            {% endif %}
+          </h1>
+          {% if page.description %}
+            <p class="subtitle">{{ page.description }}</p>
+          {% endif %}
+          <div class="columns is-multiline is-gapless">
+            <div class="column">
+              {{ macros::page_publish_metadata(page=page) }}
               </div>
             </div>
             <div class="project-content">
