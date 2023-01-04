@@ -104,7 +104,7 @@ name = "Michael Kennedy"
 avatar = "images/profile_picture.png"
 header_image = "images/hero_image.jpg"
 favicon = "code-black.ico"
-copyright = "Michael Kennedy © 2022-2023"
+copyright = "Michael Kennedy © 2023-2024"
 mailto = "mailto:michael@michaelkennedy.dev?subject=Website%20Contact%20Inquiry"
 
 [extra.social]
