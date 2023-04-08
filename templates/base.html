@@ -113,7 +113,7 @@
   }
 
   window.addEventListener("load", () => {
-    if (location.hostname === "www.michaelkennedy.dev") {
+    if (`${location.origin}/` === "{{ config.base_url}}") {
       let head = document.getElementsByTagName("head")[0];
       let outerScript = document.createElement('script');
       let innerScript = document.createElement('script');
