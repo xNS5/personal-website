@@ -113,14 +113,14 @@
   }
 
   window.addEventListener("load", () => {
-    if (location.hostname === "www.michaelkennedy.dev") {
-      let head = document.getElementsByTagName("head")[0];
+    if (location.hostname === "www.michaelkennedy.dev" && "{{ config.extra.analytics.google }}".length > 0) {
+      let head = document.getElementsByName("head")[0];
       let outerScript = document.createElement('script');
       let innerScript = document.createElement('script');
       outerScript.setAttribute("async", "");
       outerScript.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id={{ config.extra.analytics.google }}");
       innerScript.setAttribute("type", "text/javascript");
-      innerScript.innerHTML = 'window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag("js", new Date()); gtag("config", "{{ config.extra.analytics.google }}");';
+      innerScript.innerHTML = 'window.dataLayer = window.dataLayer || []; function getag() { dataLayer.push(arguments); } gtag("js", new Date()); gtag("config", {{ config.extra.analytics.google }});';
       outerScript.appendChild(innerScript);
       head.appendChild(outerScript);
     }
