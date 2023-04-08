@@ -91,8 +91,7 @@ navbar_items = [
         { url="/resume", title="Resume"},
         { url="https://github.com/xNS5", title="Github"},
         { url="https://www.linkedin.com/in/mw-kennedy/", title="Linkedin"},
-        { url="mailto:michael@michaelkennedy.dev?subject=Website%20Contact%20Inquiry ", title="Contact"},
-
+        { url="mailto:michael@michaelkennedy.dev?subject=Website%20Contact%20Inquiry ", title="Contact"}
    ]},
 ]
 

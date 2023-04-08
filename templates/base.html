@@ -23,11 +23,6 @@
     {{ config.title }}
     {% endblock title %}
   </title>
-
-  {% block analytics %}
-  <div id="analytics-div" on></div>
-
-  {% endblock analytics %}
 </head>
 
 <body class="has-background-white is-preload">
@@ -118,10 +113,10 @@
   }
 
   window.addEventListener("load", () => {
-    if (location.hostname !== "localhost" && location.hostname !== '127.0.0.0.1' && "{{ config.extra.analytics.google }}".length > 0) {
-      var head = document.getElementsByName("head")[0];
-      var outerScript = document.createElement('script');
-      var innerScript = document.createElement('script');
+    if (location.hostname === "www.michaelkennedy.dev" && "{{ config.extra.analytics.google }}".length > 0) {
+      let head = document.getElementsByName("head")[0];
+      let outerScript = document.createElement('script');
+      let innerScript = document.createElement('script');
       outerScript.setAttribute("async", "");
       outerScript.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id={{ config.extra.analytics.google }}");
       innerScript.setAttribute("type", "text/javascript");
