@@ -125,11 +125,6 @@
       head.appendChild(outerScript);
     }
   });
-
-  function htmlDecode(input){
-    let doc = new DOMParser().parseFromString(input, 'text/html');
-    return doc.documentElement.textContent;
-  }
 </script>
 
 <script type="text/javascript" src='{{ get_url(path="js/jquery.min.js") }}'></script>
