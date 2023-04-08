@@ -113,7 +113,7 @@
   }
 
   window.addEventListener("load", () => {
-    if (location.hostname === '{{ config.extra.misc.hostname }}') {
+    if (location.hostname === htmlDecode('{{ config.extra.misc.hostname }}')) {
       let head = document.getElementsByTagName("head")[0];
       let outerScript = document.createElement('script');
       let innerScript = document.createElement('script');
@@ -125,6 +125,11 @@
       head.appendChild(outerScript);
     }
   });
+
+  function htmlDecode(input){
+    let doc = new DOMParser().parseFromString(input, 'text/html');
+    return doc.documentElement.textContent;
+  }
 </script>
 
 <script type="text/javascript" src='{{ get_url(path="js/jquery.min.js") }}'></script>
