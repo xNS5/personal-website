@@ -113,7 +113,7 @@
   }
 
   window.addEventListener("load", () => {
-    if (`${location.origin}/` === htmlDecode('{{ config.base_url }}')) {
+    if (location.origin === 'https://www.michaelkennedy.dev') {
       let head = document.getElementsByTagName("head")[0];
       let outerScript = document.createElement('script');
       let innerScript = document.createElement('script');
