@@ -113,8 +113,8 @@
   }
 
   window.addEventListener("load", () => {
-    if (location.hostname === "www.michaelkennedy.dev" && "{{ config.extra.analytics.google }}".length > 0) {
-      let head = document.getElementsByName("head")[0];
+    if (`${location.origin}/` === "{{ config.base_url}}") {
+      let head = document.getElementsByTagName("head")[0];
       let outerScript = document.createElement('script');
       let innerScript = document.createElement('script');
       outerScript.setAttribute("async", "");
