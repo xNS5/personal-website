@@ -95,9 +95,6 @@ navbar_items = [
    ]},
 ]
 
-[extra.analytics]
-google="G-QK10RKYRF7"
-
 [extra.author]
 name = "Michael Kennedy"
 avatar = "images/profile_picture.png"
