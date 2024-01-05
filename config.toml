@@ -1,5 +1,5 @@
 # The URL the site will be built for
-base_url = "https://michaelkennedy.dev/"
+base_url = "https://www.michaelkennedy.dev/"
 
 # Whether to automatically compile all Sass files in the sass directory
 # compile_sass = true
@@ -91,13 +91,9 @@ navbar_items = [
         { url="/resume", title="Resume"},
         { url="https://github.com/xNS5", title="Github"},
         { url="https://www.linkedin.com/in/mw-kennedy/", title="Linkedin"},
-        { url="mailto:michael@michaelkennedy.dev?subject=Website%20Contact%20Inquiry ", title="Contact"},
-
+        { url="mailto:michael@michaelkennedy.dev?subject=Website%20Contact%20Inquiry ", title="Contact"}
    ]},
 ]
-
-[extra.analytics]
-google="G-QK10RKYRF7"
 
 [extra.author]
 name = "Michael Kennedy"
@@ -111,4 +107,3 @@ mailto = "mailto:michael@michaelkennedy.dev?subject=Website%20Contact%20Inquiry"
 github="xNS5"
 linkedin="mw-kennedy"
 email="michael@michaelkennedy.dev"
-
