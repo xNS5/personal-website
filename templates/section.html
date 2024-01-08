@@ -22,6 +22,7 @@
         {% set pages = section.pages %}
         {% endif %}
         {% for page in pages %}
+       <a href='{{ page.permalink }}'>
         <article class="box-list">
           <h2 class="title">
             <div>
@@ -36,7 +37,7 @@
               {% else %}
               <h3 class="project-title">
                   {{ page.title }}
-                </h3>
+              </h3>
               {% endif %}
             </div>
           </h2>
@@ -68,6 +69,7 @@
             </div>
           </div>
         </article>
+       </a>
         {% endfor %}
       </div>
     </div>
