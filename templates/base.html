@@ -105,6 +105,7 @@
   const lightSchemeIcon = document.getElementById('light-scheme-icon');
   const darkSchemeIcon = document.getElementById('dark-scheme-icon');
 
+  debugger;
   if(window.matchMedia('(prefers-color-scheme: dark)').matches){
     darkSchemeIcon.remove();
     document.head.append(lightSchemeIcon);

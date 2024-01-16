@@ -24,6 +24,10 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
+article{
+	margin: 1.5em;
+}
+
 body {
 	line-height: 1;
 }
@@ -123,8 +127,7 @@ select, textarea {
 		}
 
 	strong, b {
-		color: #555;
-		font-weight: 400;
+		font-weight: 800;
 	}
 
 	em, i {
@@ -2285,10 +2288,10 @@ select, textarea {
 
 	.box-list,
 	.box {
-		border-radius: 4px;
-		border: solid 2px rgb(93, 93, 93);
 		margin: 5px;
 		padding: 1.5em;
+		border-radius: 4px;
+		border: solid 2px #949494;
 	}
 
 		.box.alt {
@@ -2299,9 +2302,7 @@ select, textarea {
 
 	.box-list:hover{
 		border-radius: 4px;
-		border: solid 2px black;
-		box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
-		transition: all 0.2s ease-in-out;
+		border: solid 2px rgb(67, 67, 67);
 	}
 
 	a.project-title-container:hover{
@@ -3886,6 +3887,7 @@ a.navbar-item:focus-within{
 	color: black;
 	font-weight: bold;
 	font-size: 24pt;
+	margin-top: 1.5em;
 }
 
 .project-content > h3 {
