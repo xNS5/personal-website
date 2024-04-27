@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Kennedy;Michael;;;
+FN:Michael Kennedy -- Software Engineer
+TITLE: That one software developer from Linux Fest NW
+PHOTO;TYPE=png;VALUE=uri:https://www.michaelkennedy.dev/images/profile_picture.png
+TEL;TYPE#WORK,VOICE:(831)917-9737
+EMAIL:michael@michaelkennedy.dev
+URL:https://linkedin.com/in/mw-Kennedy
+URL:https://github.com/xns5
+URL:https://michaelkennedy.dev
+END:VCARD
