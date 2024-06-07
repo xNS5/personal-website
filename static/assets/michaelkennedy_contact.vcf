@@ -1,0 +1,18 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Michael Kennedy -- Software Engineer
+N:Kennedy;Michael;;;
+EMAIL;TYPE=INTERNET;TYPE=WORK:michael@michaelkennedy.dev
+TEL;TYPE=WORK:831-917-9737
+item1.TITLE:That one software developer from Linux Fest NW
+item1.X-ABLabel:work
+item2.URL:https\://linkedin.com/in/mw-Kennedy
+item2.X-ABLabel:homePage
+item3.URL:https\://github.com/xns5
+item3.X-ABLabel:homePage
+item4.URL:https\://michaelkennedy.dev
+item4.X-ABLabel:homePage
+PHOTO:https://lh3.googleusercontent.com/contacts/AG6tpzGgAO1SgjFsD28sU8gGRD
+ 1_LTzfTGBsYvntvOh78zXr1NJoFqbO
+CATEGORIES:myContacts
+END:VCARD

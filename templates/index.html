@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <!-- Header -->
-  <section id="header" title="The header section, with a terminal prompt icon and text in the foreground, with a picture of the Pike Place Public Market sign in the background">
+  <section id="header">
     <div class="inner">
       <span class="icon solid major fa-terminal"></span>
       <h1 id="intro">Hi, I'm <strong>Michael</strong> -- a graduate<br/>
@@ -27,7 +27,7 @@
 </section>
 
 <!-- Technologies -->
-<section title="Section two, icons and text in the foreground with a picture of flowers taken at Asilomar State Park in Pacific Grove California." id="two" class="main style2">
+<section id="two" class="main style2">
   {% set tech = get_page(path="technologies.md") %}
   <div class="container">
     <div class="row gtr-150">
