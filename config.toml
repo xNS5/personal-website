@@ -87,7 +87,6 @@ navbar_items = [
    {code = "en", nav_items = [
         { url= "/", title="Home"},
         { url="/projects", title="Projects"},
-        { url="/blog", title="Blog"},
         { url="/resume", title="Resume"},
         { url="https://github.com/xNS5", title="Github"},
         { url="https://www.linkedin.com/in/mw-kennedy/", title="Linkedin"},
