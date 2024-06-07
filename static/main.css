@@ -2099,17 +2099,19 @@ select, textarea {
 	}
 
 	header.major {
+		display: inline-block;
+		position: relative;
 		margin: 0 0 1em 0;
 	}
 
 		header.major:after {
 			background: rgba(144, 144, 144, 0.5);
 			content: '';
-			display: flex;
+			display: block;
 			height: 1px;
 			margin-top: 1.5em;
-			width: 6em;
-			margin: 1em auto;
+			width: 100%;
+			margin: 1em 0;
 		}
 
 		header.major h2, header.major h3, header.major h4, header.major h5, header.major h6 {
@@ -3891,19 +3893,20 @@ a.navbar-item:focus-within{
 }
 
 .project-content > h3 {
+	display: inline-block;
+	position: relative;
 	color: black;
 	font-style: italic;
 	font-size: 22pt;
 }
 
 .project-content > h2:after{
-	background: rgba(144, 144, 144, 0.5);
-	content: '';
-	height: 1px;
-	margin: 1rem 0 1rem 0;
-	width: 6em;
-	padding-left: 1em;
-	display: flex;
+	background: rgba(144, 144, 144);
+    content: '';
+    display: flex;
+    height: 1px;
+	margin: .5em 0 .5em 0;
+    bottom: -1.5em !important;
 }
 
 .project-content > p > code{
